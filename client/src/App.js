@@ -2,6 +2,19 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {ApolloClient, InMemoryCache, ApolloProvider, createHttpLink} from '@apollo/client';
 import {setContext} from '@apollo/client/link/context';
 
+//Importing the Pages and Components:
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+
+
+//For the styled components pluging;
+import { ThemeProvider } from 'styled-components';
+const theme = {
+  colors: {
+    header: '#BC4B51',
+  }
+}
+//For the apollo server:
 const httpLink = createHttpLink({
   uri: '/graphql',
 })
@@ -21,11 +34,18 @@ const client = new ApolloClient({
 //Set up the apollo provider and the router  here: 
 function App() {
   return (
+    <ApolloProvider client={client}>
+    <ThemeProvider theme={theme}>
     <div className="App">
-      <header className="App-header">
-       <h1>Welcome</h1>
-      </header>
+      <Router>
+     <Navbar/>
+     <Routes>
+      <Route index path='/' element={<Home />}></Route>
+     </Routes>
+     </Router>
     </div>
+    </ThemeProvider>
+    </ApolloProvider>
   );
 }
 
