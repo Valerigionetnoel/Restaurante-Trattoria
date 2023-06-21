@@ -1,6 +1,6 @@
-const { Schema, model} = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const reviewSchema = new Schema ({
+const reviewSchema = new Schema({
     reviewText: {
         type: String,
         required: 'You need to leave a review!',
@@ -8,10 +8,12 @@ const reviewSchema = new Schema ({
         maxlength: 280,
         trim: true,
     },
-    reviewAuthor: {
-        type: Schema.Types.ObjectId,
-        ref: User
-    },
+    reviewAuthor: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
     createdAt: {
         type: Date,
         default: Date.now,

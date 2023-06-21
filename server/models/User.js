@@ -24,6 +24,12 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Review'
         }
+    ],
+    reservation: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Restaurant' 
+        }
     ]
 });
 
