@@ -15,6 +15,7 @@ const Navbar = () => {
         <RightNavbar>
             <NavbarLink>
                 <NavbarSingleLink to='/contact'>Contact Us</NavbarSingleLink>
+                <NavbarSingleLink to='/reviews'>Reviews</NavbarSingleLink>
                 <NavbarSingleLink to='/location'>Location</NavbarSingleLink>
                 <NavbarSingleLink to='/menu'>Menu</NavbarSingleLink>
                 <NavbarSingleLink to='/login'>Login</NavbarSingleLink>
@@ -28,6 +29,7 @@ const Navbar = () => {
         {navbar  && (
         <ExtendedNavbar>
         <NavbarExtendedLink to='/contact'>Contact Us</NavbarExtendedLink>
+        <NavbarSingleLink to='/reviews'>Reviews</NavbarSingleLink>
         <NavbarExtendedLink to='/location'>Location</NavbarExtendedLink>
         <NavbarExtendedLink to='/menu'>Menu</NavbarExtendedLink>
         <NavbarExtendedLink to='/login'>Login</NavbarExtendedLink>
