@@ -6,7 +6,8 @@ import { useState } from "react";
 const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
 
-    return ( <StyledNavbar extended={navbar}>
+    return ( 
+       <StyledNavbar extended={navbar}>
         <InnerNavbar>
         <LeftNavbar>
         <NavbarSingleLink to='/' className='logo'>Restaurant</NavbarSingleLink>

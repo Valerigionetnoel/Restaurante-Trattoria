@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 export const HomeDiv = styled.div `
 background-color: ${({theme}) => theme.colors.offWhite};
 box-shadow: 10px lightgrey;
-width: 100%;
-height: 100%;
+width: 50%;
+height: 90vh;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -27,6 +27,7 @@ export const HomeDivName = styled(Link) `
 font-family: 'Dancing Script', cursive;
 font-size: 4vmax;
 font-weight: 400;
+text-decoration: none;
 color: ${({theme}) => theme.colors.navy};
 &:hover{
     color: ${({theme}) => theme.colors.orange};

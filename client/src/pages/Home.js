@@ -21,27 +21,31 @@ const HomePage = () => {
     <img src={img7} alt="spaghetti" className='responsiveImg'></img>
     </div>
   </Carousel>
-<Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-  <Col span={12}  className='homeDiv'>
-    <img src={img5} alt='food' className='responsiveImg'></img>
-    </Col>
-  <Col span={12}  className='homeDiv'>
+
+
+
+    
+    <div className="homeLeft">
+    <img src={img5} alt='food' className='responsiveImg1'></img>
     <HomeDiv>
       <BorderDiv>
       <HomeDivName to='/menu'>Menu</HomeDivName>
       </BorderDiv>
-      </HomeDiv></Col>
-      <Col span={12}  className='homeDiv'> 
+      </HomeDiv>
+     </div>
+
+      <div className="homeRight">
       <HomeDiv>
         <BorderDiv>
       <HomeDivName to='/contact'>Contact Us</HomeDivName>
       </BorderDiv>
       </HomeDiv>
-      </Col>
-  <Col span={12}  className='homeDiv'>
-    <img src={img6} alt='food' className='responsiveImg'></img>
-    </Col>
-</Row>
+      <img src={img6} alt='food' className='responsiveImg1'></img>
+      </div>
+
+      
+   
+
     </div> );
 }
  
