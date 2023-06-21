@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const restaurantSchema = new Schema ({
+const restaurantSchema = new Schema({
     reservation: {
         type: String,
         required: true,
