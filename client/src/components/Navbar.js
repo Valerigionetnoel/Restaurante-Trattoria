@@ -9,11 +9,10 @@ const Navbar = () => {
     return ( <StyledNavbar extended={navbar}>
         <InnerNavbar>
         <LeftNavbar>
-        <h1>Restaurant</h1>
+        <NavbarSingleLink to='/' className='logo'>Restaurant</NavbarSingleLink>
         </LeftNavbar>
         <RightNavbar>
             <NavbarLink>
-                <NavbarSingleLink to='/'>Home</NavbarSingleLink>
                 <NavbarSingleLink to='/contact'>Contact Us</NavbarSingleLink>
                 <NavbarSingleLink to='/location'>Location</NavbarSingleLink>
                 <NavbarSingleLink to='/menu'>Menu</NavbarSingleLink>
@@ -25,14 +24,13 @@ const Navbar = () => {
         </RightNavbar>
         </InnerNavbar>
 
-
-        {navbar && (
+        {navbar  && (
         <ExtendedNavbar>
-        <NavbarExtendedLink to='/'>Home</NavbarExtendedLink>
-        <NavbarSingleLink to='/contact'>Contact Us</NavbarSingleLink>
-        <NavbarSingleLink to='/location'>Location</NavbarSingleLink>
-        <NavbarSingleLink to='/menu'>Menu</NavbarSingleLink>
-        <NavbarSingleLink to='/login'>Login</NavbarSingleLink>
+        <NavbarExtendedLink to='/' className="logo">Restaurant</NavbarExtendedLink>
+        <NavbarExtendedLink to='/contact'>Contact Us</NavbarExtendedLink>
+        <NavbarExtendedLink to='/location'>Location</NavbarExtendedLink>
+        <NavbarExtendedLink to='/menu'>Menu</NavbarExtendedLink>
+        <NavbarExtendedLink to='/login'>Login</NavbarExtendedLink>
         </ExtendedNavbar>)
 }
     </StyledNavbar>

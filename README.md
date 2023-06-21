@@ -9,7 +9,9 @@
 ## Technologies Used:
 Front End:
 - React
-- Styled Components, and CSS
+- Styled Components
+- AndD
+-CSS
 Back End:
 - Mongo DB and Mongoose
 - GraphQL, Node.js, and Express.js server
