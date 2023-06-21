@@ -1,4 +1,3 @@
-import { Col, Row } from 'antd';
 import { Carousel } from 'antd';
 import img1 from '../images/interior/img1.jpg';
 import img2 from '../images/interior/img2.jpg';
@@ -22,9 +21,6 @@ const HomePage = () => {
     </div>
   </Carousel>
 
-
-
-    
     <div className="homeLeft">
     <img src={img5} alt='food' className='responsiveImg1'></img>
     <HomeDiv>
