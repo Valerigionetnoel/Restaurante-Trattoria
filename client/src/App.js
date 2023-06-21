@@ -5,7 +5,12 @@ import {setContext} from '@apollo/client/link/context';
 //Importing the Pages and Components:
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-
+import ContactPage from './pages/Contact';
+import CustomerPage from './pages/Customer';
+import LocationPage from './pages/Location';
+import LoginPage from './pages/Login';
+import MenuPage from './pages/Menu';
+import NotFound from './pages/NotFound';
 
 //For the styled components pluging;
 import { ThemeProvider } from 'styled-components';
@@ -48,9 +53,16 @@ function App() {
      <Navbar/>
      <Routes>
       <Route index path='/' element={<Home />}></Route>
+      <Route path='/contact' element={<ContactPage />}></Route>
+      <Route path='/customer' element={<CustomerPage />}></Route>
+      <Route path='/location' element={<LocationPage/>}></Route>
+      <Route path='/login' element={<LoginPage />}></Route>
+      <Route path='/menu' element={<MenuPage />}></Route>
+      <Route path='*' element={<NotFound/>}></Route>
      </Routes>
      </Router>
     </div>
+   
     </ThemeProvider>
     </ApolloProvider>
   );

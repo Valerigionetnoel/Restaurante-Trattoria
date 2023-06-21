@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledNavbar = styled.nav`
-    background-color: ${({theme}) => theme.colors.header};
+    background-color: ${({theme}) => theme.colors.navy};
     width: 100%;
     color: white;
     height: ${(props) => (props.extended ? '100vh': '80px')};
@@ -17,8 +17,7 @@ export const LeftNavbar = styled.div`
 flex: 30%;
 display: flex;
 align-items: center;
-padding-left: 2%;;
-background-color: orange;
+padding-left: 2%;
 `;
 
 export const RightNavbar = styled.div`
@@ -27,7 +26,6 @@ display: flex;
 justify-content: flex-end;
 align-items: center;
 padding-right: 5%;
-background-color: pink;
 `;
 
 export const ExtendedNavbar = styled.div`
