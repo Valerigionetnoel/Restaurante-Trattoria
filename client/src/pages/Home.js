@@ -28,13 +28,13 @@ const HomePage = () => {
   <Col span={12}  className='homeDiv'>
     <HomeDiv>
       <BorderDiv>
-      <HomeDivName>Menu</HomeDivName>
+      <HomeDivName to='/menu'>Menu</HomeDivName>
       </BorderDiv>
       </HomeDiv></Col>
       <Col span={12}  className='homeDiv'> 
       <HomeDiv>
         <BorderDiv>
-      <HomeDivName>Contact Us</HomeDivName>
+      <HomeDivName to='/contact'>Contact Us</HomeDivName>
       </BorderDiv>
       </HomeDiv>
       </Col>
@@ -42,7 +42,6 @@ const HomePage = () => {
     <img src={img6} alt='food' className='responsiveImg'></img>
     </Col>
 </Row>
-
     </div> );
 }
  
