@@ -11,6 +11,9 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 text-align: center;
+@media (max-width: 700px){
+    width: 100%;
+}
 `;
 export const BorderDiv = styled.div `
 border: 2px solid ${({theme}) => theme.colors.navy};
