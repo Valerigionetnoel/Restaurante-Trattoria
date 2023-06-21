@@ -13,16 +13,29 @@ body{
 h1, .logo{
     font-family: 'Dancing Script', cursive;
     font-weight: 600;
-    font-size: 2em;
+    font-size: 6vmax;
 }
 h2, h3, .title{
     font-family: 'Dancing Script', cursive;
+    font-size: 4vmax;
     font-weight: 400;
 }
 h4, h5, h6, .font{
     font-family: 'Merriweather', serif;
+    font-size: 2vmax;
     font-weight: 400;
 }
 .homeDiv{
     margin-top: 2em;
+}
+.responsiveImg{
+    width: 100%;
+    height: auto;
+   
+}
+@media (min-width: 1000px){
+    .responsiveImg{
+        max-height: fit-content;
+    }
+   
 }
