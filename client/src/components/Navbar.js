@@ -1,4 +1,4 @@
-import { StyledNavbar, LeftNavbar, RightNavbar, ExtendedNavbar, InnerNavbar, NavbarLink, NavbarSingleLink, OpenLinksButton, NavbarExtendedLink } from "../styled/Navbar.styled";
+import { StyledNavbar, LeftNavbar, RightNavbar, ExtendedNavbar, InnerNavbar, NavbarLink, NavbarSingleLink, OpenLinksButton, NavbarExtendedLink, NavbarSingleLinkHome } from "../styled/Navbar.styled";
 import { useState } from "react";
 
 //The rest of the links need to be imported on both sections here:
@@ -10,7 +10,7 @@ const Navbar = () => {
        <StyledNavbar extended={navbar}>
         <InnerNavbar>
         <LeftNavbar>
-        <NavbarSingleLink to='/' className='logo'>Restaurant</NavbarSingleLink>
+        <NavbarSingleLinkHome to='/' className='logo'>Restaurant</NavbarSingleLinkHome>
         </LeftNavbar>
         <RightNavbar>
             <NavbarLink>
@@ -27,7 +27,6 @@ const Navbar = () => {
 
         {navbar  && (
         <ExtendedNavbar>
-        <NavbarExtendedLink to='/' className="logo">Restaurant</NavbarExtendedLink>
         <NavbarExtendedLink to='/contact'>Contact Us</NavbarExtendedLink>
         <NavbarExtendedLink to='/location'>Location</NavbarExtendedLink>
         <NavbarExtendedLink to='/menu'>Menu</NavbarExtendedLink>

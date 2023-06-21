@@ -25,7 +25,7 @@ const SignupForm = () => {
             <input type="email" value={formData.email} name='email' required/>
             <label>Password:</label>
             <input type="password" value={formData.password} name='password'required/>
-            <button>Submit</button>
+            <button className="button">Submit</button>
         </StyledLogin>
       </Col>
     </div> );

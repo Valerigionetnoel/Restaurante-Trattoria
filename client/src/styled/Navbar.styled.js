@@ -49,17 +49,30 @@ display: flex;
 
 export const NavbarSingleLink = styled(Link)`
 color: white;
-font-size: x-large;
+font-size: 2vmax;
 text-decoration: none;
 margin: 10px;
+&:hover{
+    font-weight: bold;
+    color: ${({theme}) => theme.colors.orange};
+}
 @media (max-width: 700px){
     display: none;
 }
 `;
 
-export const NavbarExtendedLink = styled(Link)`
+export const NavbarSingleLinkHome = styled(Link)`
 color: white;
 font-size: 3vmax;
+text-decoration: none;
+&:hover{
+    font-weight: bold;
+    color: ${({theme}) => theme.colors.orange};
+}
+`;
+
+export const NavbarExtendedLink = styled(Link)`
+color: white;
 text-decoration: none;
 margin:10px;
 `;
@@ -68,7 +81,6 @@ export const OpenLinksButton = styled.button`
 width: 70px;
 height: 50px;
 background: none;
-background-color: none;
 border: none;
 color: white;
 font-size: 2em;
