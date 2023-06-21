@@ -20,10 +20,30 @@ h2, h3, .title{
     font-size: 4vmax;
     font-weight: 400;
 }
+h3{
+    font-family: 'Dancing Script', cursive;
+    font-size: 3vmax;
+    font-weight: 400;
+}
 h4, h5, h6, .font{
     font-family: 'Merriweather', serif;
     font-size: 2vmax;
     font-weight: 400;
+}
+button{
+    background-color: #F19A38;
+    color: white;
+    border-radius: 5px;
+    padding: 1em 2em;
+    width: 35%;
+    border: none;
+}
+button:hover{
+    background-color: #D5762C;
+    color: #F1F3F6;
+    border-radius: 25px;
+    width: 35%;
+    border: none;
 }
 .homeDiv{
     margin-top: 2em;
@@ -31,7 +51,27 @@ h4, h5, h6, .font{
 .responsiveImg{
     width: 100%;
     height: auto;
-   
+}
+
+.loginDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.rightLogin{
+    width: 50%;
+}
+.leftLogin{
+    width: 50%;
+    display: flex;
+    gap: 2em;
+    flex-direction: column;
+    padding: 1em;
+}
+.responsiveImg2{
+    width: 100%;
+    max-height: 100%;
 }
 @media (min-width: 1000px){
     .responsiveImg{

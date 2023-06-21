@@ -62,7 +62,6 @@ function App() {
      </Routes>
      </Router>
     </div>
-   
     </ThemeProvider>
     </ApolloProvider>
   );

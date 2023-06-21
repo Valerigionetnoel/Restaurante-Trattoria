@@ -8,9 +8,6 @@ align-items: center;
 justify-content: center;
 margin: 3em;
 font-size: 3vw;
-
-
-
 `;
 
 export const StyledNotFoundLink = styled(Link)`
@@ -20,6 +17,4 @@ font-size: 2vmax;
 &:hover {
     color: ${({theme}) => theme.colors.orange};
 }
-
-
 `;
