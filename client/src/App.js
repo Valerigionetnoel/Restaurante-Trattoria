@@ -11,7 +11,13 @@ import Home from './pages/Home';
 import { ThemeProvider } from 'styled-components';
 const theme = {
   colors: {
-    header: '#BC4B51',
+    orange: '#F19A38',
+    darkOrange:'#D5762C',
+    navy: '#0F1D2D',
+    white: '#FFF',
+    offWhite: '#F1F3F6',
+    lightGrey: '#BDBBBC',
+    darkGrey: '#717B85',
   }
 }
 //For the apollo server:
@@ -31,7 +37,8 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache()
 });
-//Set up the apollo provider and the router  here: 
+
+//Set up the rest of the routes: 
 function App() {
   return (
     <ApolloProvider client={client}>

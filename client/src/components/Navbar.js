@@ -1,12 +1,8 @@
 import { StyledNavbar, LeftNavbar, RightNavbar, ExtendedNavbar, InnerNavbar, NavbarLink, NavbarSingleLink, OpenLinksButton, NavbarExtendedLink } from "../styled/Navbar.styled";
 import { useState } from "react";
 
-
 const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
-
-
-
 
     return ( <StyledNavbar extended={navbar}>
         <InnerNavbar>
@@ -21,7 +17,6 @@ const Navbar = () => {
                     {navbar ? <> &#10005; </> : <> &#8801;</>}
                     </OpenLinksButton>
             </NavbarLink>
-
         </RightNavbar>
         </InnerNavbar>
         {navbar && (
@@ -29,7 +24,6 @@ const Navbar = () => {
         <NavbarExtendedLink to='/'>Home</NavbarExtendedLink>
         </ExtendedNavbar>)
 }
-        
     </StyledNavbar>
         );
 }
