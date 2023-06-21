@@ -14,6 +14,10 @@ const Navbar = () => {
         <RightNavbar>
             <NavbarLink>
                 <NavbarSingleLink to='/'>Home</NavbarSingleLink>
+                <NavbarSingleLink to='/contact'>Contact Us</NavbarSingleLink>
+                <NavbarSingleLink to='/location'>Location</NavbarSingleLink>
+                <NavbarSingleLink to='/menu'>Menu</NavbarSingleLink>
+                <NavbarSingleLink to='/login'>Login</NavbarSingleLink>
                 <OpenLinksButton onClick={() => setNavbar((curr) => !curr)}>
                     {navbar ? <> &#10005; </> : <> &#8801; </>}
                     </OpenLinksButton>
@@ -21,10 +25,14 @@ const Navbar = () => {
         </RightNavbar>
         </InnerNavbar>
 
-        
+
         {navbar && (
         <ExtendedNavbar>
         <NavbarExtendedLink to='/'>Home</NavbarExtendedLink>
+        <NavbarSingleLink to='/contact'>Contact Us</NavbarSingleLink>
+        <NavbarSingleLink to='/location'>Location</NavbarSingleLink>
+        <NavbarSingleLink to='/menu'>Menu</NavbarSingleLink>
+        <NavbarSingleLink to='/login'>Login</NavbarSingleLink>
         </ExtendedNavbar>)
 }
     </StyledNavbar>
