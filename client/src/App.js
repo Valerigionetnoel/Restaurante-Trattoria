@@ -11,6 +11,7 @@ import LocationPage from './pages/Location';
 import LoginPage from './pages/Login';
 import MenuPage from './pages/Menu';
 import NotFound from './pages/NotFound';
+import Footer from './components/Footer';
 
 //For the styled components pluging;
 import { ThemeProvider } from 'styled-components';
@@ -61,6 +62,7 @@ function App() {
       <Route path='*' element={<NotFound/>}></Route>
      </Routes>
      </Router>
+     <Footer />
     </div>
     </ThemeProvider>
     </ApolloProvider>

@@ -75,10 +75,19 @@ button:hover{
 }
 .rightLogin{
     width: 50%;
+    height: 100vh;
+}
+.rightLogin img{
+  height: 100vh;
+  position:sticky;
+
 }
 .leftLogin{
     width: 50%;
+    height: 100vh;
     display: flex;
+    align-items: left;
+    justify-content: center;
     gap: 2em;
     flex-direction: column;
     padding: 1em;
@@ -99,8 +108,6 @@ button:hover{
     .loginDiv{
         display: flex;
         flex-direction: column-reverse;
-        
-        border: 2px solid orange;
     }
     .rightLogin{
         width: 100%;
