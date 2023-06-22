@@ -1,5 +1,5 @@
 const User = require('./User');
 const Review = require('./Review')
-const Restaurant = require('./Restaurant')
+const Reservation = require('./Reservation');
 
-module.exports = { User, Review, Restaurant}
+module.exports = { User, Review, Reservation};

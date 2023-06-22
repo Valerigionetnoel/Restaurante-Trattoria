@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 export const StyledMenuContainer = styled.div`
 
-
-
 `;
 
 export const StyledMenuButtonContainer = styled.div`
@@ -19,6 +17,5 @@ button{
 button:hover{
     width: 25%;
 }
-
 `;
 

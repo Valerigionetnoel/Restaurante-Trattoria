@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Review, Restaurant } = require('../models');
+const { User, Review, Reservation} = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -37,7 +37,6 @@ const resolvers = {
             if (!correctPw) {
                 throw new AuthenticationError('Incorrect credentials');
             }
-
             const token = signToken(user);
 
             return { token, user };
@@ -49,10 +48,9 @@ const resolvers = {
                 { username: reviewAuthor },
                 { $addToSet: {reviews: review._id } }
             );
-
             return review
         },
-        addReservation: async( parent, {})
+        
     },
 };
 

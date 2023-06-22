@@ -38,10 +38,6 @@ const HomePage = () => {
       </HomeDiv>
       <img src={img6} alt='food' className='responsiveImg1'></img>
       </div>
-
-      
-   
-
     </div> );
 }
  

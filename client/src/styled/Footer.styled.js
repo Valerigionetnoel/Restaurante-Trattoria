@@ -6,6 +6,7 @@ display: flex;
 flex-direction: row;
 color: white;
 padding: 1em;
-height: 120px;
+height: 100px;
+
 `;
 
