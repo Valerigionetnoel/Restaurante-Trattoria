@@ -3,11 +3,11 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
     type User {
         _id: ID
-        username: String
-        email: String
-        password: String
-        review: [Review]!
-        reservation: [Restaurant]!
+        username: String!
+        email: String!
+        password: String!
+        review: [Review]
+        reservation: [Restaurant]
     }
 
     type Review {
@@ -17,10 +17,12 @@ const typeDefs = gql`
         createdAt: String
     }
 
-    type Restaurant {
+    type Reservation {
         _id: ID
-        reservation: String
-        createdAt: String
+        reservationName: String
+        reservationDate: String
+        reservationNumber: Int
+        reservationTime: String
     }
 
     type Auth {
