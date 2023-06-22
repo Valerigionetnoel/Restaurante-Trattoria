@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1, .logo{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+    font-size: 5vmax;
+}
+h2, h3, .title{
+    font-family: 'Dancing Script', cursive;
+    font-size: 4vmax;
+    font-weight: 400;
+}
+h3{
+    font-family: 'Dancing Script', cursive;
+    font-size: 3vmax;
+    font-weight: 400;
+}
+h4, h5, h6{
+    font-family: 'Merriweather', serif;
+    font-size: 2vmax;
+    font-weight: 400;
+}
+.button{
+    background-color: #F19A38;
+    color: white;
+    border-radius: 5px;
+    padding: 1em 2em;
+    width: 35%;
+    border: none;
+}
+.button:hover{
+    background-color: #D5762C;
+    color: #F1F3F6;
+    border-radius: 25px;
+    width: 35%;
+    border: none;
+}
+/* Home Page */
+.homeDiv{
+    margin-top: 2em;
+}
+
+.responsiveImg{
+    width: 100%;
+    height: auto;
+}
+.homeLeft, .homeRight{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin: 1em;
+    height: 50%;
+}
+.responsiveImg1{
+    height: 90vh;
+    width: 50%;
+}
+/* Login/Signup Page */
+.loginDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.rightLogin{
+    width: 50%;
+    height: 100vh;
+}
+.rightLogin img{
+  height: 100vh;
+  position:sticky;
+
+}
+.leftLogin{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    gap: 2em;
+    flex-direction: column;
+    padding: 1em;
+}
+.responsiveImg2{
+    width: 100%;
+    max-height: 100%;
+}
+/* Menu Page */
+.menuPictureDiv{
+    position: relative;
+    height: 550px;
+    width: 100%;
+}
+.menuBorder h2{
+    z-index: 100;
+    position: absolute;
+    color: white;
+    left: 25%;
+    top: 100px;
+    border: 2px solid white;
+    padding: 2em 5em;
+    border-radius: 5px;
+}
+.responsiveImg3{
+    height: 500px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Media Queries */
+@media (max-width: 700px){
+    .homeLeft, .homeRight{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .responsiveImg1{
+        height: 80vh;
+        width: 100%;
+    }
+    .loginDiv{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .rightLogin{
+        width: 100%;
+        height: 500px;
+    }
+    .leftLogin{
+        width: 100%;
+    }
+}
+@media (min-width: 1000px){
+    .responsiveImg{
+        max-height: fit-content;
+    }
+   
+}

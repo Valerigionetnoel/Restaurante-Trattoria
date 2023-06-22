@@ -38,7 +38,9 @@ const Login = (props) => {
     };
 
     return (
-
+        <main>
+            
+        </main>
     );
 };
 
@@ -75,7 +77,9 @@ const Signup = () => {
     };
 
     return (
+        <main>
 
+        </main>
     );
 }
 export default { Login, Signup };
