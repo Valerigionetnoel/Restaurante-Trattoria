@@ -6,12 +6,18 @@ const typeDefs = gql`
         username: String!
         email: String!
         password: String!
-        review: [Review]
-        reservation: [Restaurant]
+        userReviews: [Review]
+        userReservations: [Reservation]
     }
 
     type Review {
         _id: ID
+        reviewText: String!
+        reviewAuthor: [User]!
+        createdAt: String
+    }
+    type ReviewInput {
+        _id: String
         reviewText: String
         reviewAuthor: [User]!
         createdAt: String
@@ -25,9 +31,23 @@ const typeDefs = gql`
         reservationTime: String
     }
 
+    type ReservationInput {
+        _id: String
+        reservationName: String
+        reservationDate: String
+        reservationNumber: Int
+        reservationTime: String
+    }
+
     type Auth {
         token: ID!
         user: User
+    }
+
+    type Mutation {
+        login(email: String!, password: String!): Auth
+        addUser(username: String!, email: String!, password: String!)L Auth
+
     }
 
     type Query {
@@ -37,9 +57,6 @@ const typeDefs = gql`
         review(reviewId: ID!): Review
     }
     
-    type Mutation {
-        
-    }
 `;
 
 module.exports = typeDefs;
