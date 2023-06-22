@@ -37,7 +37,6 @@ const resolvers = {
             if (!correctPw) {
                 throw new AuthenticationError('Incorrect credentials');
             }
-
             const token = signToken(user);
 
             return { token, user };
@@ -49,7 +48,6 @@ const resolvers = {
                 { username: reviewAuthor },
                 { $addToSet: {reviews: review._id } }
             );
-
             return review
         },
         
