@@ -52,7 +52,7 @@ const resolvers = {
 
             return review
         },
-        addReservation: async( parent, {})
+        
     },
 };
 

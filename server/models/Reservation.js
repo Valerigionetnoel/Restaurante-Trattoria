@@ -11,7 +11,7 @@ const reservationSchmea = new Schema({
         required: true
     },
     reservationNumber: {
-        type: Int,
+        type: Number,
         required: true
     },
     reservationTime: {
