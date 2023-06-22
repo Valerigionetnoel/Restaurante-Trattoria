@@ -17,6 +17,9 @@ const resolvers = {
         review: async (parent, { reviewId }) => {
             return Review.findOne({ _id: reviewId });
         },
+        reservation: async (parent, {reservationId}) => {
+            return Reservation.findOne({_id: reservationId})
+        }
     },
 
     Mutation: {
@@ -59,8 +62,9 @@ const resolvers = {
             // );
             return reservation;
         },
-        updateReview: async(parent, {}) => {
-
+        updateReview: async(parent, {reviewText, reviewAuthor}) => {
+            const review = await Review.findByIdAndUpdate({reviewText, reviewAuthor})
+            return review
         },
         deleteReview: async(parent, {reviewId}, context) => {
             if (context.user) {
