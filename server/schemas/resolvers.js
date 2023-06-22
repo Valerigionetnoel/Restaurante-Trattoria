@@ -48,9 +48,26 @@ const resolvers = {
                 { username: reviewAuthor },
                 { $addToSet: {reviews: review._id } }
             );
-            return review
+            return review;
         },
-        
+        addReservation: async(parent, { reservationName, reservationDate, reservationNumber, reservationTime }) => {
+            const reservation = await Reservation.create({reservationName, reservationDate, reservationNumber, reservationTime});
+
+            await User.findOneAndUpdate(
+                {username: reservationName},
+                { $addToSet: {reservations: reservation._id}}
+            );
+            return reservation;
+        },
+        updateReview: async(parent, {}) => {
+
+        },
+        deleteReview: async(parent, {}) => {
+
+        },
+        deleteReservation: async(parent, {}) => {
+
+        },
     },
 };
 
