@@ -77,8 +77,12 @@ const resolvers = {
                 return review;
             }
         },
-        deleteReservation: async(parent, {}) => {
+        deleteReservation: async(parent, {reservationId}) => {
+            const reservation = await Reservation.findByIdAndDelete({
+                _id: reservationId
+            });
 
+            return reservation;
         },
     },
 };
