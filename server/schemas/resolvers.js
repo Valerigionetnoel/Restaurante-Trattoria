@@ -53,17 +53,29 @@ const resolvers = {
         addReservation: async(parent, { reservationName, reservationDate, reservationNumber, reservationTime }) => {
             const reservation = await Reservation.create({reservationName, reservationDate, reservationNumber, reservationTime});
 
-            await User.findOneAndUpdate(
-                {username: reservationName},
-                { $addToSet: {reservations: reservation._id}}
-            );
+            // await User.findOneAndUpdate(
+            //     {username: reservationName},
+            //     { $addToSet: {reservations: reservation._id}}
+            // );
             return reservation;
         },
         updateReview: async(parent, {}) => {
 
         },
-        deleteReview: async(parent, {}) => {
+        deleteReview: async(parent, {reviewId}, context) => {
+            if (context.user) {
+                const review = await Review.findByIdAndDelete({
+                    _id: reviewId,
+                    reviewAuthor: context.user.username
+                });
 
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { reviews: review._id}}
+                );
+
+                return review;
+            }
         },
         deleteReservation: async(parent, {}) => {
 
