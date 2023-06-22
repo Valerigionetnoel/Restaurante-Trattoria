@@ -10,11 +10,11 @@ const SignupForm = () => {
         email: '',
         password: '',
     });
-    const [addUser, {error}] = useMutation(ADD_USER);
+    const [addUser] = useMutation(ADD_USER);
 
     const handleChange = (event) => {
-        console.log(event);
         const { name, value } = event.target;
+        console.log(event, name, value);
 
         setFormState({
             ...formState,
@@ -30,10 +30,12 @@ const SignupForm = () => {
             const { data } = await addUser({
                 variables: { ...formState},
             });
+            console.log(data);
 
             Auth.login(data.addUser.token);
         } catch (err) {
             console.error(err);
+            console.log('LOG ERR', err);
         }
     };
 
@@ -43,11 +45,12 @@ const SignupForm = () => {
         <StyledLogin onSubmit={handleFormSubmit}>
         <h3>Sign Up</h3>
             <label>Username: </label>
-            <input type="text" value={formState.username} name='name'onChange={handleChange} required />
+            <input type="text" value={formState.username} name='username' onChange={handleChange} required />
             <label>Email: </label>
             <input type="text" value={formState.email} name='email' onChange={handleChange} required/>
             <label>Password:</label>
             <input type="password" value={formState.password} name='password' onChange={handleChange} required/>
+            <button className="button">Submit</button>
         </StyledLogin>
 
     </div> );
