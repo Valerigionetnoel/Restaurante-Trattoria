@@ -24,7 +24,7 @@ const theme = {
     white: '#FFF',
     offWhite: '#F1F3F6',
     lightGrey: '#BDBBBC',
-    darkGrey: '#717B85',
+    darkGrey: '#717B85', 
   }
 }
 //For the apollo server:
