@@ -42,11 +42,10 @@ const LoginForm = (props) => {
       <StyledLogin onSubmit={handleFormSubmit}>
         <h3>Login</h3>
             <label>Email: </label>
-            <input type="email" value={formState.email} name='email' onChange={handleChange} required/>
+            <input type="text" value={formState.email} name='email' onChange={handleChange} required/>
             <label>Password:</label>
             <input type="password" value={formState.password} name='password' onChange={handleChange} required/>
             <button className="button">Submit</button>
-            <h2>{error ? error : ''}</h2>
         </StyledLogin>
     </div>
 );
