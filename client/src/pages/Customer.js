@@ -16,7 +16,6 @@ const CustomerPage = () => {
                 <textarea name='review' rows="5" cols="60"/>
             </form>
 
-
         </CustomerReview>
        <CustomerMappedReviews>
         <h5>Customer Mapped Reviews Go Here</h5>

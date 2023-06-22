@@ -49,8 +49,7 @@ const typeDefs = gql`
         user(username: String!): User
         reviews(username: String): [Review]
         review(reviewId: ID!): Review
-    }
-    
+    } 
 `;
 
 module.exports = typeDefs;
