@@ -2,7 +2,6 @@ import { StyledNavbar, LeftNavbar, RightNavbar, ExtendedNavbar, InnerNavbar, Nav
 import { useState } from "react";
 import Auth from '../utils/auth';
 
-
 const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
 
@@ -73,7 +72,6 @@ const Navbar = () => {
              </ExtendedNavbar>)}
              </StyledNavbar>
              </>
-     
         )
         }
         </>

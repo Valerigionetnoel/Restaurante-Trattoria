@@ -25,14 +25,6 @@ const typeDefs = gql`
         reservationTime: String
     }
 
-    type ReservationInput {
-        _id: String
-        reservationName: String
-        reservationDate: String
-        reservationNumber: Int
-        reservationTime: String
-    }
-
     type Auth {
         token: ID!
         user: User
