@@ -5,52 +5,39 @@ import { useState } from "react";
 import { StyledCustomer, StyledCustomerRight, CustomerMappedReviews, CustomerReview } from "../styled/Customer.styled";
 import img4 from '../images/food/img4.jpg';
 import Auth from '../utils/auth';
+import CustomerReviews from "../components/CustomerReviews";
 
 const CustomerPage = () => {
-    //For the ADD_REVIEW:
-    //const [newReview, setNewReview] = useState();
-    //const [addReview, {error, loading}] = useMutation(ADD_REVIEW);
-
     //For the GET_USER:
     const {loading, data} = useQuery(GET_USER);
     const userData = data?.user || {};
     console.log(userData);
 
-
-
-    const handleSavedReview = () => {
-        const token = Auth.loggedIn() ? Auth.getToken() : null;    
-        if (!token) {
-          return false;
-        }
-        try{
-
-           // const {data} = await addReview({
-            //    variables: {}
-           // })
-
-        } catch (err){
-            console.error(err);
-        }
-
-    }
+    const {userReviews} = userData;
+    console.log('user reviews', userReviews);
+   
     return ( 
-    <StyledCustomer>
+        <>
+    {Auth.loggedIn ? (
+        <StyledCustomer>
         <img src={img4} alt='table' className="leftImg"></img>
-
        <StyledCustomerRight>
         <CustomerReview>
             <h3>{userData.username}</h3>
-            <form>
-                <label>Leave a review:</label>
-                <textarea name='review' rows="4" cols="50"/>
-            </form>
+        <CustomerReviews />
         </CustomerReview>
        <CustomerMappedReviews>
-        <h5>Customer Mapped Reviews Go Here</h5>
+        {userReviews.map(review => (
+            <p>review.reviewText</p>
+        ))}
        </CustomerMappedReviews>
        </StyledCustomerRight>
     </StyledCustomer>
+    ) : (
+        <h2>You Must be logged in</h2>
+    )}
+    </>
+ 
         
   );
 }
