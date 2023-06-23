@@ -6,7 +6,6 @@ flex-direction: column;
 margin : 2em;
 align-items: center;
 text-align: center;
-
 `;
 
 export const StyledContactForm = styled.div`
@@ -19,7 +18,6 @@ input, textarea {
   background-color: none;
   resize: none;
 }
-
 `;
 
 export const StyledContactBottom = styled.div`
