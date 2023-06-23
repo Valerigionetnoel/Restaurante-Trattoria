@@ -25,7 +25,7 @@ const userSchema = new Schema({
             ref: 'Review'
         }
     ],
-    reservation: [
+    reservations: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Reservation'
