@@ -3,8 +3,9 @@ import { MessageOutlined } from "@ant-design/icons";
 import {StyledContactContainer, StyledContactBottom, StyledContactForm} from '../styled/Contact.styled';
 
 const ContactPage = () => {
-  return (
 
+  
+  return (
    <StyledContactContainer>
       <h2>Get in touch with us</h2>
         {/* FORM */}

@@ -17,9 +17,6 @@ const resolvers = {
         review: async (parent, { reviewId }) => {
             return Review.findOne({ _id: reviewId });
         },
-        reservation: async (parent, {reservationId}) => {
-            return Reservation.findOne({_id: reservationId})
-        }
     },
 
     Mutation: {
@@ -52,45 +49,6 @@ const resolvers = {
                 { $addToSet: {reviews: review._id } }
             );
             return review;
-        },
-        addReservation: async(parent, { reservationName, reservationDate, reservationNumber, reservationTime }) => {
-            const reservation = await Reservation.create({reservationName, reservationDate, reservationNumber, reservationTime});
-
-            // await User.findOneAndUpdate(
-            //     {username: reservationName},
-            //     { $addToSet: {reservations: reservation._id}}
-            // );
-            return reservation;
-        },
-        updateReview: async(parent, {reviewId, reviewText, reviewAuthor}) => {
-            const review = await Review.findByIdAndUpdate({
-                _id: reviewId,
-                reviewText,
-                reviewAuthor
-                });
-            return review
-        },
-        deleteReview: async(parent, {reviewId}, context) => {
-            if (context.user) {
-                const review = await Review.findByIdAndDelete({
-                    _id: reviewId,
-                    reviewAuthor: context.user.username
-                });
-
-                await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { reviews: review._id}}
-                );
-
-                return review;
-            }
-        },
-        deleteReservation: async(parent, {reservationId}) => {
-            const reservation = await Reservation.findByIdAndDelete({
-                _id: reservationId
-            });
-
-            return reservation;
         },
     },
 };
