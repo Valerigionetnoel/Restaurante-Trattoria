@@ -7,8 +7,13 @@ const resolvers = {
         users: async () => {
             return User.find().populate('reviews');
         },
-        user: async (parent, { username }) => {
-            return User.findOne({ username }).populate('reviews');
+        user: async(parent, args, context) => {
+            if(context.user){
+              const user = await User.findById({_id: context.user._id});
+              return user;
+            } 
+                throw new AuthenticationError('User is not logged in')
+        
         },
         reviews: async (parent, { username }) => {
             const params = username ? { username } : {};
