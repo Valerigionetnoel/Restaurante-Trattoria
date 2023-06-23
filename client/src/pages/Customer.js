@@ -9,10 +9,10 @@ const CustomerPage = () => {
     //For the GET_USER:
     const {loading, data} = useQuery(GET_USER);
     const userData = data?.user || {};
-    console.log(userData);
+   // console.log(userData);
 
     const {userReviews} = userData;
-    console.log('user reviews', userReviews);
+   // console.log('user reviews', userReviews);
 
     if(loading){
         <h2>Loading...</h2>
@@ -34,15 +34,13 @@ const CustomerPage = () => {
                 <p>{review.reviewText}</p>
             ))}
            </CustomerMappedReviews>
-        ) : (<h5>You have no reviews to show</h5>)}
+        ) : (<h6>You have no reviews</h6>)}
        </StyledCustomerRight>
     </StyledCustomer>
     ) : (
         <h2>You Must be logged in</h2>
     )}
-    </>
- 
-        
+    </> 
   );
 }
  
