@@ -34,9 +34,8 @@ const CustomerPage = () => {
             <h3>Users Name</h3>
             <form>
                 <label>Leave a review:</label>
-                <textarea name='review' rows="5" cols="60"/>
+                <textarea name='review' rows="4" cols="50"/>
             </form>
-
         </CustomerReview>
        <CustomerMappedReviews>
         <h5>Customer Mapped Reviews Go Here</h5>
