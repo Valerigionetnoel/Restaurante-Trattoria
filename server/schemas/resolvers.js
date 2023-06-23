@@ -62,8 +62,12 @@ const resolvers = {
             // );
             return reservation;
         },
-        updateReview: async(parent, {reviewText, reviewAuthor}) => {
-            const review = await Review.findByIdAndUpdate({reviewText, reviewAuthor})
+        updateReview: async(parent, {reviewId, reviewText, reviewAuthor}) => {
+            const review = await Review.findByIdAndUpdate({
+                _id: reviewId,
+                reviewText,
+                reviewAuthor
+                });
             return review
         },
         deleteReview: async(parent, {reviewId}, context) => {
