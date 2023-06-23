@@ -1,7 +1,5 @@
-import { useQuery, useMutation } from "@apollo/client";
-import { ADD_REVIEW } from '../utils/mutations';
+import { useQuery} from "@apollo/client";
 import { GET_USER } from "../utils/queries";
-import { useState } from "react";
 import { StyledCustomer, StyledCustomerRight, CustomerMappedReviews, CustomerReview } from "../styled/Customer.styled";
 import img4 from '../images/food/img4.jpg';
 import Auth from '../utils/auth';
@@ -15,22 +13,28 @@ const CustomerPage = () => {
 
     const {userReviews} = userData;
     console.log('user reviews', userReviews);
+
+    if(loading){
+        <h2>Loading...</h2>
+    }
    
     return ( 
         <>
-    {Auth.loggedIn ? (
+    {Auth.loggedIn() ? (
         <StyledCustomer>
         <img src={img4} alt='table' className="leftImg"></img>
        <StyledCustomerRight>
         <CustomerReview>
-            <h3>{userData.username}</h3>
+            <h2>{userData.username}</h2>
         <CustomerReviews />
         </CustomerReview>
-       <CustomerMappedReviews>
-        {userReviews.map(review => (
-            <p>review.reviewText</p>
-        ))}
-       </CustomerMappedReviews>
+        {userReviews ? (
+            <CustomerMappedReviews>
+            {userReviews.map(review => (
+                <p>{review.reviewText}</p>
+            ))}
+           </CustomerMappedReviews>
+        ) : (<h5>You have no reviews to show</h5>)}
        </StyledCustomerRight>
     </StyledCustomer>
     ) : (
