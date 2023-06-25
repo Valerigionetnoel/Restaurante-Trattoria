@@ -1,12 +1,9 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Review, Reservation} = require('../models');
+const { User} = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        users: async () => {
-            return User.find().populate('reviews');
-        },
         user: async(parent, args, context) => {
             if(context.user){
               const user = await User.findById({_id: context.user._id});
@@ -14,13 +11,6 @@ const resolvers = {
             } 
                 throw new AuthenticationError('User is not logged in')
         
-        },
-        reviews: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Review.find(params).sort({ createdAt: -1 });
-        },
-        review: async (parent, { reviewId }) => {
-            return Review.findOne({ _id: reviewId });
         },
     },
 
@@ -36,7 +26,6 @@ const resolvers = {
             if (!user) {
                 throw new AuthenticationError('No user found with this email address');
             }
-
             const correctPw = await user.isCorrectPassword(password);
 
             if (!correctPw) {
@@ -46,16 +35,16 @@ const resolvers = {
 
             return { token, user };
         },
-        addReview: async (parent, { reviewText, reviewAuthor}) => {
-            const review = await Review.create({ reviewText, reviewAuthor });
-
-            await User.findOneAndUpdate(
-                { username: reviewAuthor },
-                { $addToSet: {reviews: review._id } }
-            );
-            return review;
+        addReview: async (parent, {reviewText}, context) => {
+            console.log('ADDING A REVIWEW ARGS', args);
+            if(context.user){
+                const user = await User.findOneAndUpdate({_id: context.user._id},
+                    {$push: {reviews: reviewText}}, {new: true});
+                 return user;
+               }
+               throw new AuthenticationError('You need to be logged to create a review');
         },
-    },
+    }
 };
 
 module.exports = resolvers

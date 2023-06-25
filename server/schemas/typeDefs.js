@@ -6,41 +6,26 @@ const typeDefs = gql`
         username: String!
         email: String!
         password: String!
-        userReviews: [Review]
-        userReservations: [Reservation]
+        reviews: [Review]
     }
-
     type Review {
         _id: ID
-        reviewText: String!
-        reviewAuthor: [User]!
+        reviewText: String
         createdAt: String
     }
-
-    type Reservation {
-        _id: ID
-        reservationName: String
-        reservationDate: String
-        reservationNumber: Int
-        reservationTime: String
-    }
-
     type Auth {
         token: ID!
         user: User
     }
-
+   
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addReview(reviewText: String!, reviewAuthor: String!): User
+        addReview(reviewText: String!): User
     }
 
     type Query {
-        users: [User]
         user: User
-        reviews(username: String): [Review]
-        review(reviewId: ID!): Review
     } 
 `;
 
