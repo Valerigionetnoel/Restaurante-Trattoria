@@ -49,18 +49,21 @@ h4, h5, h6{
 .homeDiv{
     margin-top: 2em;
 }
-
+.carouselDiv{
+    max-height: 50vh;
+}
 .responsiveImg{
     width: 100%;
     height: auto;
+    max-height: 50vh;
 }
 .homeLeft, .homeRight{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1em;
-    margin: 1em;
+    gap: 2.5em;
+    margin: 2.5em;
     height: 50%;
 }
 .responsiveImg1{
@@ -124,6 +127,9 @@ h4, h5, h6{
 .leftImg{
     max-width: 40%;
 }
+
+/* Contact Page */
+
 
 /* Media Queries */
 @media (max-width: 700px){

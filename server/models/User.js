@@ -19,18 +19,12 @@ const userSchema = new Schema({
         required: true,
         minlength: 6,
     },
-    reviews: [
+    reviews:[
         {
             type: Schema.Types.ObjectId,
             ref: 'Review'
         }
     ],
-    reservation: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Reservation'
-        }
-    ]
 });
 
 userSchema.pre('save', async function (next) {

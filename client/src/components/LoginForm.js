@@ -4,7 +4,7 @@ import {useMutation} from '@apollo/client';
 import Auth from '../utils/auth';
 import { StyledLogin } from "../styled/Login.styled";
 
-const LoginForm = (props) => {
+const LoginForm = () => {
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login] = useMutation(LOGIN_USER);
 
@@ -16,7 +16,6 @@ const LoginForm = (props) => {
             [name]: value,
         });
     };
-
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         console.log(formState);
@@ -24,21 +23,17 @@ const LoginForm = (props) => {
             const { data } = await login({
                 variables: { ...formState },
             });
-
             Auth.login(data.login.token);
         } catch (err) {
             console.error(err);
         }
-
         setFormState({
             email: '',
             password: '',
         });
     };
-
     return (
-
-<div>
+    <div>
       <StyledLogin onSubmit={handleFormSubmit}>
         <h3>Login</h3>
             <label>Email: </label>

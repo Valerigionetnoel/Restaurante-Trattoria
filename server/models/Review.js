@@ -8,12 +8,6 @@ const reviewSchema = new Schema({
         maxlength: 280,
         trim: true,
     },
-    reviewAuthor: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }
-    ],
     createdAt: {
         type: Date,
         default: Date.now,

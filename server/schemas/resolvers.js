@@ -1,25 +1,17 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Review, Reservation} = require('../models');
+const { User} = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        users: async () => {
-            return User.find().populate('reviews');
+        user: async(parent, args, context) => {
+            if(context.user){
+              const user = await User.findById({_id: context.user._id});
+              return user;
+            } 
+                throw new AuthenticationError('User is not logged in')
+        
         },
-        user: async (parent, { username }) => {
-            return User.findOne({ username }).populate('reviews');
-        },
-        reviews: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Review.find(params).sort({ createdAt: -1 });
-        },
-        review: async (parent, { reviewId }) => {
-            return Review.findOne({ _id: reviewId });
-        },
-        reservation: async (parent, {reservationId}) => {
-            return Reservation.findOne({_id: reservationId})
-        }
     },
 
     Mutation: {
@@ -34,7 +26,6 @@ const resolvers = {
             if (!user) {
                 throw new AuthenticationError('No user found with this email address');
             }
-
             const correctPw = await user.isCorrectPassword(password);
 
             if (!correctPw) {
@@ -44,55 +35,16 @@ const resolvers = {
 
             return { token, user };
         },
-        addReview: async (parent, { reviewText, reviewAuthor}) => {
-            const review = await Review.create({ reviewText, reviewAuthor });
-
-            await User.findOneAndUpdate(
-                { username: reviewAuthor },
-                { $addToSet: {reviews: review._id } }
-            );
-            return review;
+        addReview: async (parent, {reviewText}, context) => {
+            console.log('ADDING A REVIWEW ARGS', args);
+            if(context.user){
+                const user = await User.findOneAndUpdate({_id: context.user._id},
+                    {$push: {reviews: reviewText}}, {new: true});
+                 return user;
+               }
+               throw new AuthenticationError('You need to be logged to create a review');
         },
-        addReservation: async(parent, { reservationName, reservationDate, reservationNumber, reservationTime }) => {
-            const reservation = await Reservation.create({reservationName, reservationDate, reservationNumber, reservationTime});
-
-            // await User.findOneAndUpdate(
-            //     {username: reservationName},
-            //     { $addToSet: {reservations: reservation._id}}
-            // );
-            return reservation;
-        },
-        updateReview: async(parent, {reviewId, reviewText, reviewAuthor}) => {
-            const review = await Review.findByIdAndUpdate({
-                _id: reviewId,
-                reviewText,
-                reviewAuthor
-                });
-            return review
-        },
-        deleteReview: async(parent, {reviewId}, context) => {
-            if (context.user) {
-                const review = await Review.findByIdAndDelete({
-                    _id: reviewId,
-                    reviewAuthor: context.user.username
-                });
-
-                await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { reviews: review._id}}
-                );
-
-                return review;
-            }
-        },
-        deleteReservation: async(parent, {reservationId}) => {
-            const reservation = await Reservation.findByIdAndDelete({
-                _id: reservationId
-            });
-
-            return reservation;
-        },
-    },
+    }
 };
 
 module.exports = resolvers

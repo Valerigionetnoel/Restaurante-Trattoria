@@ -15,6 +15,9 @@ padding: 1em;
 
 `;
 export const CustomerReview = styled.div`
+h3{
+    padding-block: 1em;
+}
 
 form{
     display: flex;
