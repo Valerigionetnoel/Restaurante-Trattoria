@@ -1,6 +1,6 @@
 import { useQuery} from "@apollo/client";
 import { GET_USER } from "../utils/queries";
-import { StyledCustomer, StyledCustomerRight, CustomerMappedReviews, CustomerReview } from "../styled/Customer.styled";
+import { OverflowMapped, StyledCustomer, StyledCustomerRight, CustomerMappedReviews, CustomerReview } from "../styled/Customer.styled";
 import img4 from '../images/food/img4.jpg';
 import Auth from "../utils/auth";
 import CustomerReviewSection from "../components/CustomerReview";
@@ -27,15 +27,16 @@ const CustomerPage = () => {
         <CustomerReviewSection />
         </CustomerReview>
         {reviews ? (
-            <div>
+            <OverflowMapped>
             {reviews.map(review => (
-                <CustomerMappedReviews key={review._id}>
+                <CustomerMappedReviews key={review.id}>
                 <p>{review.reviewText}</p>
-                <button className="button">X</button>
+                <button className="button">Edit</button>
+                <button className="button">Delete</button>
                 </CustomerMappedReviews>
 
             ))}
-            </div>
+            </OverflowMapped>
            
         ) : (<h6>You have no reviews</h6>)}
        </StyledCustomerRight>

@@ -15,8 +15,11 @@ padding: 1em;
 
 `;
 export const CustomerReview = styled.div`
+h2{
+    padding-block: 0.5em;
+}
 h3{
-    padding-block: 1em;
+    padding-block: 0.5em;
 }
 
 form{
@@ -25,21 +28,28 @@ form{
     gap: 1em;
 } 
 textarea{
-    border: 2px solid ${({theme}) => theme.colors.navy};
+    border: 1px solid ${({theme}) => theme.colors.navy};
     border-radius: 5px;
-    padding: 1em;
+    padding: 1.5em;
+
 }
 
 `;
-
+export const OverflowMapped = styled.div`
+overflow-x: scroll;
+`;
 
 export const CustomerMappedReviews = styled.div`
- border: 2px solid ${({theme}) => theme.colors.orange};
+ border: none;
+ box-shadow: 5px 5px 5px 5px ${({theme}) => theme.colors.lightGrey};
  padding: 2em;
  border-radius: 5px;
- display: flex;
- flex-direction: row;
- justify-content: space-between;
- align-items: center;
+ 
+
+ margin: 1em;
+ button {
+    margin: 1em;
+    width: 30%;
+ }
 
 `;
