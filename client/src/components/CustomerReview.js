@@ -14,7 +14,6 @@ const CustomerReviewSection = () => {
           return false;
         }
         try{
-
             const {data} = await addReview({
               variables: {
                 reviewText,

@@ -11,7 +11,7 @@ const CustomerPage = () => {
     const userData = data?.user || {};
 
     const {reviews} = userData;
-
+    console.log(reviews);
     if(loading){
         <h2>Loading...</h2>
     }
@@ -27,11 +27,16 @@ const CustomerPage = () => {
         <CustomerReviewSection />
         </CustomerReview>
         {reviews ? (
-            <CustomerMappedReviews>
+            <div>
             {reviews.map(review => (
+                <CustomerMappedReviews key={review._id}>
                 <p>{review.reviewText}</p>
+                <button className="button">X</button>
+                </CustomerMappedReviews>
+
             ))}
-           </CustomerMappedReviews>
+            </div>
+           
         ) : (<h6>You have no reviews</h6>)}
        </StyledCustomerRight>
     </StyledCustomer>

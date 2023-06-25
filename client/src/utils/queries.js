@@ -7,7 +7,9 @@ export const GET_USER = gql`
             username
             email
             reviews {
+                _id
                 reviewText
+                createdAt
             }  
         }
     }

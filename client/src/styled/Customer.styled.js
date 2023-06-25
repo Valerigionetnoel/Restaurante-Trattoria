@@ -34,5 +34,12 @@ textarea{
 
 
 export const CustomerMappedReviews = styled.div`
+ border: 2px solid ${({theme}) => theme.colors.orange};
+ padding: 2em;
+ border-radius: 5px;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
 
 `;
