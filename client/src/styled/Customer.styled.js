@@ -4,9 +4,15 @@ export const StyledCustomer = styled.div`
 height: 100vh;
 display: flex;
 flex-direction: row;
-
-
+@media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    img{
+        max-width: 100%;
+    }
+}
 `;
+
 export const StyledCustomerRight = styled.div`
 display: flex;
 flex-direction: column;
@@ -31,7 +37,6 @@ textarea{
     border: 1px solid ${({theme}) => theme.colors.navy};
     border-radius: 5px;
     padding: 1.5em;
-
 }
 
 `;
