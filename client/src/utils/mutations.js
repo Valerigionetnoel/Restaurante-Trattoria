@@ -27,15 +27,34 @@ export const ADD_USER = gql `
 export const ADD_REVIEW = gql`
 mutation addReview($reviewText: String!){
     addReview(reviewText: $reviewText){
-        _id
-        username
-        email
-        reviews {
             _id
             reviewText
-        }
+            reviewAuthor
+            createdAt
     }
 }
 `;
 
+export const ADD_RESERVATION = gql`
+mutation addReservation($reservationDate: String!, $reservationNumber: Int!, $reservationTime: String){
+    addReservation(reservationDate: $reservationDate, reservationNumber: $reservationNumber, reservationTime: $reservationTime){
+        _id
+        reservationName
+        reservationDate
+        reservationNumber
+        reservationTime
+    }
+}
+`;
+
+export const DELETE_REVIEW = gql`
+mutation deleteReview($reviewId: ID!){
+    deleteReview(reviewId: $reviewId){
+        _id
+        reviewText
+        reviewAuthor
+        createdAt
+    }
+}
+`
 

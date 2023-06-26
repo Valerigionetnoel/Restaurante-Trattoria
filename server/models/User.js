@@ -25,6 +25,12 @@ const userSchema = new Schema({
             ref: 'Review'
         }
     ],
+    reservations:[
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Reservations'
+        }
+    ]
 });
 
 userSchema.pre('save', async function (next) {

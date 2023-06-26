@@ -7,16 +7,17 @@ const reservationSchmea = new Schema({
         minlength: 3,
     },
     reservationDate : {
-        type: String,
-        required: true
+        type: Date,
+        default: Date.now,
     },
     reservationNumber: {
         type: Number,
         required: true
     },
     reservationTime: {
-        type: Date,
-        default: Date.now,
+        type: String,
+        required: true
+        
     }, 
 });
 

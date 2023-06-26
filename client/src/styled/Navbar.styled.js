@@ -32,6 +32,7 @@ export const ExtendedNavbar = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+z-index: 100;
 @media (min-width: 700px){
     display: none;
 }

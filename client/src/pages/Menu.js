@@ -3,7 +3,6 @@ import { StyledMenuButtonContainer, StyledMenuContainer } from '../styled/Menu.s
 
 const MenuPage = () => {
 
-
     return (
          <StyledMenuContainer>
             <div className='menuPictureDiv'>

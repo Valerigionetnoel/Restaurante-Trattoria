@@ -36,3 +36,30 @@ color: ${({theme}) => theme.colors.navy};
     color: ${({theme}) => theme.colors.orange};
 }
 `;
+
+export const HomeName = styled.div`
+h2{
+    z-index: 90;
+    position: absolute;
+    color: white;
+    left: 25%;
+    top: 40%;
+    border: 4px solid white;
+    background-color:hsla( 12, 100%,75%, 0.2);
+    padding: 2em 5em;
+    border-radius: 5px;
+}
+@media (max-width: 1000px){
+    h2{
+        left: 20%;
+        top: 25%;
+    }
+}
+@media (max-width: 500px){
+    h2{
+        left: 10%;
+        top: 20%;
+    }
+}
+
+`;
