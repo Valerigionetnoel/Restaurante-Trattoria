@@ -13,7 +13,10 @@ const resolvers = {
         
         },
         reviews: async (parent, args, context) => {
-          return Review.find().sort({ createdAt: -1 });
+          console.log('Getting all of the reviews');
+          const reviews = await Review.find();
+          console.log(reviews);
+          return reviews;
         },
     
     },

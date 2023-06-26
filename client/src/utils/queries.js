@@ -18,7 +18,7 @@ export const GET_USER = gql`
 
 //Gets all the reviews
 export const GET_REVIEWS = gql`
-query getReviews{
+query {
     reviews {
         _id
         reviewText

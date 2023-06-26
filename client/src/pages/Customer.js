@@ -58,7 +58,6 @@ const CustomerPage = () => {
                 <button className="button">Edit</button>
                 <button className="button" onClick={() => deleteAReview(review._id)}>Delete</button>
                 </CustomerMappedReviews>
-
             ))}
             </OverflowMapped>
            
