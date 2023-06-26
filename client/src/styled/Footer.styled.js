@@ -10,7 +10,6 @@ height: 80px;
 width: 100%;
 @media (max-width: 800px){
     position: fixed;
-   
 }
 `;
 
