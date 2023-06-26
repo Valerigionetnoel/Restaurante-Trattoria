@@ -19,3 +19,27 @@ button:hover{
 }
 `;
 
+export const StyledDishesContainer = styled.div`
+
+h1 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.picture {
+    margin-top: 30px;
+}
+
+.examplePicture {
+    width: 50%;
+}
+
+.dishCard {
+    margin: 20px;
+
+}
+
+
+
+`;
+

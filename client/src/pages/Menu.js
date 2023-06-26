@@ -1,7 +1,10 @@
 import img8 from '../images/food/img8.jpg';
-import { StyledMenuButtonContainer, StyledMenuContainer } from '../styled/Menu.styled';
+import Dishes from '../components/Dishes';
+import { StyledMenuButtonContainer, StyledMenuContainer, StyledDishesContainer } from '../styled/Menu.styled';
+import DishTypes from '../components/DishTypes';
 
 const MenuPage = () => {
+
 
     return (
          <StyledMenuContainer>
@@ -11,14 +14,20 @@ const MenuPage = () => {
                 <h2>Menu</h2>
                 </div>
             </div>
-            <StyledMenuButtonContainer>
-                <button className="button">Appetizers</button>
+            {/* <StyledMenuButtonContainer>
+                <button className="button" onClick={() => handleTypeChange('Appetizers')}>Appetizers</button>
                 <button className="button">Entrees</button>
                 <button className="button">Desserts</button>
                 <button className="button">Pasta</button>
                 <button className="button">Pizza</button>
+                <button className="button">Drinks</button>
                 
-            </StyledMenuButtonContainer>
+            </StyledMenuButtonContainer> */}
+            {/* <DishTypes /> */}
+
+            <StyledDishesContainer>
+                <Dishes />
+            </StyledDishesContainer>
 
 
 
