@@ -47,4 +47,14 @@ mutation addReservation($reservationDate: String!, $reservationNumber: Int!, $re
 }
 `;
 
+export const DELETE_REVIEW = gql`
+mutation deleteReview($reviewId: ID!){
+    deleteReview(reviewId: $reviewId){
+        _id
+        reviewText
+        reviewAuthor
+        createdAt
+    }
+}
+`
 
