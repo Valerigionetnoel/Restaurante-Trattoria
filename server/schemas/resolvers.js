@@ -51,6 +51,22 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
           },
+          //This needs to be completed
+          addReservation: async (parent, args, context) => {
+            if (context.user) {
+            console.log('Creating the review', reviewText);
+              const review = await Review.create({
+                reviewText,
+                reviewAuthor: context.user.username,
+              });
+              await User.findOneAndUpdate(
+                { _id: context.user._id },
+                { $addToSet: { reviews: review._id } }
+              );
+              return review;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+          },
       
     }
 };

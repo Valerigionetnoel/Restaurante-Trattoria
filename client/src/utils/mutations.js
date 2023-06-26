@@ -35,4 +35,16 @@ mutation addReview($reviewText: String!){
 }
 `;
 
+export const ADD_RESERVATION = gql`
+mutation addReservation($reservationDate: String!, $reservationNumber: Int!, $reservationTime: String){
+    addReservation(reservationDate: $reservationDate, reservationNumber: $reservationNumber, reservationTime: $reservationTime){
+        _id
+        reservationName
+        reservationDate
+        reservationNumber
+        reservationTime
+    }
+}
+`;
+
 
