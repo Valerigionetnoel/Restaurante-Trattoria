@@ -1,5 +1,5 @@
 import Auth from '../utils/auth';
-import { ADD_REVIEW} from '../utils/mutations';
+import { ADD_REVIEW } from '../utils/mutations';
 import { useState } from "react";
 import {useMutation} from '@apollo/client';
 

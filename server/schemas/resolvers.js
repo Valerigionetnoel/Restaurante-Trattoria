@@ -53,6 +53,7 @@ const resolvers = {
           },
           //This needs to be completed
           addReservation: async (parent, args, context) => {
+            console.log('Adding a reservation', args);
             if (context.user) {
             console.log('Creating the review', reviewText);
               const review = await Review.create({
@@ -68,6 +69,7 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
           },
           deleteReview: async (parent, { reviewId }) => {
+            console.log('Deleting a review', reviewId);
             return Review.findOneAndDelete({ _id: reviewId });
           },
       

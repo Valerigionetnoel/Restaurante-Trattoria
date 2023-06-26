@@ -1,5 +1,6 @@
 import { useQuery, useMutation } from "@apollo/client";
-import { GET_USER, DELETE_REVIEW  } from "../utils/queries";
+import { GET_USER} from "../utils/queries";
+import {DELETE_REVIEW} from "../utils/mutations";
 import { OverflowMapped, StyledCustomer, StyledCustomerRight, CustomerMappedReviews, CustomerReview } from "../styled/Customer.styled";
 import img4 from '../images/food/img4.jpg';
 import Auth from "../utils/auth";
@@ -17,26 +18,27 @@ const CustomerPage = () => {
     }
 
 
-        //For DELETE_REVIEW
-        const [deleteReview, {error}] = useMutation(DELETE_REVIEW);
+     //For DELETE_REVIEW
+     const [deleteReview, {error}] = useMutation(DELETE_REVIEW);
 
-        const deleteAReview = async(reviewId) => {
-          const token = Auth.loggedIn() ? Auth.getToken() : null;
+    const deleteAReview = async(reviewId) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
 
 
-         if (!token) {
-         return false;
+     if (!token) {
+     return false;
         }
-        try{
-          const {data} = await deleteReview({
-            variables: {reviewId}
-          })
 
-        } catch(error){
+     try{
+
+     const {data} = await deleteReview({
+     variables: {reviewId}
+
+     });
+     window.location.reload();
+    } catch(error){
           console.error(error);
-        }
-
-        }
+    } }
    
     return ( 
         <>
@@ -51,10 +53,10 @@ const CustomerPage = () => {
         {reviews ? (
             <OverflowMapped>
             {reviews.map(review => (
-                <CustomerMappedReviews key={review.id}>
+                <CustomerMappedReviews key={review.reviewId}>
                 <p>{review.reviewText}</p>
                 <button className="button">Edit</button>
-                <button className="button">Delete</button>
+                <button className="button" onClick={() => deleteAReview(review._id)}>Delete</button>
                 </CustomerMappedReviews>
 
             ))}
