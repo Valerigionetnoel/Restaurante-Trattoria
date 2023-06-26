@@ -6,7 +6,7 @@ display: flex;
 flex-direction: row;
 color: white;
 padding: 1em;
-height: 80px;
+height: 100px;
 width: 100%;
 @media (max-width: 800px){
     position: fixed;
