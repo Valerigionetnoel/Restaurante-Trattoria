@@ -12,6 +12,10 @@ const resolvers = {
                 throw new AuthenticationError('User is not logged in')
         
         },
+        reviews: async (parent, args, context) => {
+          return Review.find().sort({ createdAt: -1 });
+        },
+    
     },
 
     Mutation: {

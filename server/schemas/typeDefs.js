@@ -37,6 +37,7 @@ const typeDefs = gql`
 
     type Query {
         user: User
+        reviews: [Review]
     } 
 `;
 

@@ -14,3 +14,14 @@ export const GET_USER = gql`
         }
     }
 `;
+
+export const GET_REVIEWS = gql`
+query getReviews{
+    reviews {
+        _id
+        reviewText
+        reviewAuthor
+        createdAt
+    }
+}
+`
