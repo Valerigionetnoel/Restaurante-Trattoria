@@ -10,7 +10,6 @@ const resolvers = {
                 return user;
             }
             throw new AuthenticationError('User is not logged in')
-
         },
     },
 
@@ -20,6 +19,7 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+
         login: async (parent, { email, password }) => {
             console.log('Logging in')
             const user = await User.findOne({ email });
@@ -36,6 +36,7 @@ const resolvers = {
 
             return { token, user };
         },
+
         addReview: async (parent, { reviewText }, context) => {
             if (context.user) {
                 console.log('Creating the review', reviewText);
@@ -77,6 +78,18 @@ const resolvers = {
             console.log('Deleting reservation', reservationId);
             return Reservation.findOneAndDelete({ _id: reservationId })
         },
+
+        // Not sure if this is the way to do this ＞﹏＜
+        updateReview: async (parent, args, context) => {
+            if (context.user) {
+                console.log('Review Updated!')
+                const review = Review.findByIdAndUpdate(
+                    { _id: context.review._id },
+                    { reviewText }
+                )
+                return review
+            }
+        }
     },
 };
 
