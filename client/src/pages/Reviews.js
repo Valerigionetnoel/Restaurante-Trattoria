@@ -3,7 +3,7 @@ import {GET_REVIEWS} from '../utils/queries';
 
 
 const Reviews = () => {
-
+    //For getting all of the reviews
     const {loading, data} = useQuery(GET_REVIEWS);
     const reviewData = data?.reviews || {};
 

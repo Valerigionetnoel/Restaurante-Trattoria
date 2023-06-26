@@ -1,5 +1,6 @@
 import {gql} from '@apollo/client';
 
+//Login
 export const LOGIN_USER = gql `
     mutation login($email: String!, $password: String!){
         login(email: $email, password: $password){
@@ -12,6 +13,7 @@ export const LOGIN_USER = gql `
     }
 `;
 
+//Signup
 export const ADD_USER = gql `
     mutation addUser($username: String!, $email: String!, $password: String!){
         addUser(username: $username, email: $email, password: $password){
@@ -24,6 +26,7 @@ export const ADD_USER = gql `
     }
 `;
 
+//Add a review
 export const ADD_REVIEW = gql`
 mutation addReview($reviewText: String!){
     addReview(reviewText: $reviewText){
@@ -35,6 +38,7 @@ mutation addReview($reviewText: String!){
 }
 `;
 
+//Add a reservation
 export const ADD_RESERVATION = gql`
 mutation addReservation($reservationDate: String!, $reservationNumber: Int!, $reservationTime: String){
     addReservation(reservationDate: $reservationDate, reservationNumber: $reservationNumber, reservationTime: $reservationTime){
@@ -47,6 +51,7 @@ mutation addReservation($reservationDate: String!, $reservationNumber: Int!, $re
 }
 `;
 
+//Delete a review
 export const DELETE_REVIEW = gql`
 mutation deleteReview($reviewId: ID!){
     deleteReview(reviewId: $reviewId){
@@ -57,4 +62,4 @@ mutation deleteReview($reviewId: ID!){
     }
 }
 `
-
+//Delete a reservation
