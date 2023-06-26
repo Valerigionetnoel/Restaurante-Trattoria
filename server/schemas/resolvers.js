@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Review} = require('../models');
+const { User, Review, Reservation} = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -51,29 +51,32 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
           },
+
           //This needs to be completed
-          addReservation: async (parent, args, context) => {
-            console.log('Adding a reservation', args);
+          addReservation: async (parent, { reservationName, reservationDate, reservationNumber, reservationTime }, context) => {
+            console.log('Adding a reservation', { reservationName, reservationDate, reservationNumber, reservationTime });
             if (context.user) {
-            console.log('Creating the review', reviewText);
-              const review = await Review.create({
-                reviewText,
-                reviewAuthor: context.user.username,
+            console.log('Creating the reservation', reservationName);
+              const reservation = await Reservation.create({
+                reservationName,
+                reservationDate,
+                reservationNumber,
+                reservationTime
               });
-              await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $addToSet: { reviews: review._id } }
-              );
-              return review;
+              return reservation;
             }
             throw new AuthenticationError('You need to be logged in!');
           },
+
           deleteReview: async (parent, { reviewId }) => {
             console.log('Deleting a review', reviewId);
             return Review.findOneAndDelete({ _id: reviewId });
           },
-      
-      
+
+          deleteReservation: async (parent,{ reservationId } ) => {
+            console.log('Deleting reservation', reservationId);
+            return Reservation.findOneAndDelete({ _id: reservationId})
+          }
     }
 };
 
