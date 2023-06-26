@@ -67,6 +67,10 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
           },
+          deleteReview: async (parent, { reviewId }) => {
+            return Review.findOneAndDelete({ _id: reviewId });
+          },
+      
       
     }
 };
