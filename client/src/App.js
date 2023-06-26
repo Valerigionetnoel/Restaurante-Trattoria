@@ -16,6 +16,7 @@ import Reviews from './pages/Reviews';
 
 //For the styled components pluging;
 import { ThemeProvider } from 'styled-components';
+import ReservationPage from './pages/Reservation';
 const theme = {
   colors: {
     orange: '#F19A38',
@@ -57,6 +58,7 @@ function App() {
       <Route index path='/' element={<Home />}></Route>
       <Route path='/contact' element={<ContactPage />}></Route>
       <Route path='/customer' element={<CustomerPage />}></Route>
+      <Route path='/reservation' element={<ReservationPage />}></Route>
       <Route path='/location' element={<LocationPage/>}></Route>
       <Route path='/login' element={<LoginPage />}></Route>
       <Route path='/reviews' element={<Reviews />}></Route>

@@ -19,6 +19,7 @@ const Navbar = () => {
                  <NavbarLink>
                      <NavbarSingleLink to='/menu'>Menu</NavbarSingleLink>
                      <NavbarSingleLink to='/reviews'>Reviews</NavbarSingleLink>
+                     <NavbarSingleLink to='/reservation'>Reservation</NavbarSingleLink>
                      <NavbarSingleLink to='/contact'>Contact Us</NavbarSingleLink>
                      <NavbarSingleLink to='/location'>Location</NavbarSingleLink>
                      <NavbarSingleLink to='/customer'>Profile</NavbarSingleLink>
@@ -33,6 +34,7 @@ const Navbar = () => {
              <ExtendedNavbar>
              <NavbarExtendedLink to='/menu'>Menu</NavbarExtendedLink>
              <NavbarExtendedLink to='/reviews'>Reviews</NavbarExtendedLink>
+             <NavbarExtendedLink to='/reservation'>Reservation</NavbarExtendedLink>
              <NavbarExtendedLink to='/contact'>Contact Us</NavbarExtendedLink>
              <NavbarExtendedLink to='/location'>Location</NavbarExtendedLink>
              <NavbarExtendedLink to='/customer'>Profile</NavbarExtendedLink>
@@ -53,7 +55,6 @@ const Navbar = () => {
                  <NavbarLink>
                      <NavbarSingleLink to='/menu'>Menu</NavbarSingleLink>
                      <NavbarSingleLink to='/reviews'>Reviews</NavbarSingleLink>
-                     <NavbarSingleLink to='/reservation'>Reservation</NavbarSingleLink>
                      <NavbarSingleLink to='/contact'>Contact Us</NavbarSingleLink>
                      <NavbarSingleLink to='/location'>Location</NavbarSingleLink>
                      <NavbarSingleLink to='/login'>Login</NavbarSingleLink>
@@ -67,7 +68,6 @@ const Navbar = () => {
              <ExtendedNavbar>
                      <NavbarExtendedLink to='/menu'>Menu</NavbarExtendedLink>
                      <NavbarExtendedLink to='/reviews'>Reviews</NavbarExtendedLink>
-                     <NavbarExtendedLink to='/reservation'>Reservation</NavbarExtendedLink>
                      <NavbarExtendedLink to='/contact'>Contact Us</NavbarExtendedLink>
                      <NavbarExtendedLink to='/location'>Location</NavbarExtendedLink>
                      <NavbarExtendedLink to='/login'>Login</NavbarExtendedLink>
