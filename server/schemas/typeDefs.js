@@ -7,12 +7,20 @@ const typeDefs = gql`
         email: String!
         password: String!
         reviews: [Review]
+        reservations: [Reservation]
     }
     type Review {
         _id: ID
         reviewText: String
         reviewAuthor: String
         createdAt: String
+    }
+    type Reservation {
+        _id: ID
+        reservationName: String
+        reservationDate: String
+        reservationNumber: Int
+        reservationTime: String
     }
     type Auth {
         token: ID!
