@@ -10,7 +10,7 @@ const Navbar = () => {
         {Auth.loggedIn() ?
         (
             <>
-            <StyledNavbar extended={navbar}>
+            <StyledNavbar>
              <InnerNavbar>
              <LeftNavbar>
              <NavbarSingleLinkHome to='/' className='logo'>Restaurant</NavbarSingleLinkHome>
@@ -44,7 +44,7 @@ const Navbar = () => {
        
         ) : (
             <>
-            <StyledNavbar extended={navbar}>
+            <StyledNavbar>
              <InnerNavbar>
              <LeftNavbar>
              <NavbarSingleLinkHome to='/' className='logo'>Restaurant</NavbarSingleLinkHome>
