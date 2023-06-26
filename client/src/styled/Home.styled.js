@@ -43,7 +43,7 @@ h2{
     position: absolute;
     color: white;
     left: 25%;
-    top: 35%;
+    top: 40%;
     border: 4px solid white;
     background-color:hsla( 12, 100%,75%, 0.2);
     padding: 2em 5em;
