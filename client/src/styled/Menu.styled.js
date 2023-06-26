@@ -22,21 +22,24 @@ button:hover{
 export const StyledDishesContainer = styled.div`
 
 h1 {
+    border: 2px solid red;
     margin-top: 30px;
     text-align: center;
 }
 
 .picture {
+    border: 2px solid orange;
     margin-top: 30px;
 }
 
 .examplePicture {
     width: 50%;
+    height: 400px;
 }
 
 .dishCard {
+    border-bottom: 1px solid black;
     margin: 20px;
-
 }
 
 
