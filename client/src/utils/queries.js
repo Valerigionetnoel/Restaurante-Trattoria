@@ -27,3 +27,11 @@ query {
     }
 }
 `
+
+export const QUERY_CHECKOUT = gql`
+query ($fullName: String!, $amount: Int!) {
+    checkout (fullName: $fullName, amount: $amount)  {
+        session
+    }
+}
+`

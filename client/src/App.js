@@ -13,6 +13,7 @@ import MenuPage from './pages/Menu';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 import Reviews from './pages/Reviews';
+import DonationPage from './pages/Donations';
 
 //For the styled components pluging;
 import { ThemeProvider } from 'styled-components';
@@ -63,6 +64,7 @@ function App() {
       <Route path='/login' element={<LoginPage />}></Route>
       <Route path='/reviews' element={<Reviews />}></Route>
       <Route path='/menu' element={<MenuPage />}></Route>
+      <Route path='/donation' element={<DonationPage />}></Route>
       <Route path='*' element={<NotFound/>}></Route>
      </Routes>
      </Router>

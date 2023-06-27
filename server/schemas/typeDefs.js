@@ -36,7 +36,12 @@ const typeDefs = gql`
     type Query {
         user: User
         reviews: [Review]
+        checkout(fullName: String!, amount: Int!): Checkout
     } 
+
+    type Checkout {
+        session: ID
+      }
 `;
 
 module.exports = typeDefs;
