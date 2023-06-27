@@ -1,4 +1,3 @@
-import React from 'react';
 import entreesList from './entreesList';
 import EntreesPicture1 from './images/entreesPicture1.jpg';
 import EntreesPicture2 from './images/entreesPicture2.jpg';

@@ -12,7 +12,7 @@ const dessertsList = [
     },
     {
         id: 2,
-        name: 'Tea and herbal tea ice cream',
+        name: 'Tea And Herbal Tea Ice Cream',
         description: 'Total phenolic content of ice cream samplesincreased with the use of tea or herbal teas.',
         alt: 'Tea and herbal tea ice cream',
         image: DessertPicture2,
@@ -38,7 +38,7 @@ const dessertsList = [
     },
     {
         id: 6,
-        name: 'Blondie with vanilla ice cream',
+        name: 'Blondie With Vanilla Ice Cream',
         description: 'Rich, buttery blondie serves as the base of this show-stopping cake and is also folded into the vanilla ice cream filling.',
         price: 18,
     },

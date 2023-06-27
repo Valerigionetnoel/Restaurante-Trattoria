@@ -7,16 +7,16 @@ import Auth from "../utils/auth";
 import CustomerReviewSection from "../components/CustomerReview";
 
 const CustomerPage = () => {
+    
     //For the GET_USER:
     const {loading, data} = useQuery(GET_USER);
     const userData = data?.user || {};
 
     const {reviews} = userData;
-    console.log(reviews);
+   
     if(loading){
         <h2>Loading...</h2>
     }
-
 
      //For DELETE_REVIEW
      const [deleteReview, {error}] = useMutation(DELETE_REVIEW);
@@ -58,7 +58,6 @@ const CustomerPage = () => {
                 <button className="button">Edit</button>
                 <button className="button" onClick={() => deleteAReview(review._id)}>Delete</button>
                 </CustomerMappedReviews>
-
             ))}
             </OverflowMapped>
            
