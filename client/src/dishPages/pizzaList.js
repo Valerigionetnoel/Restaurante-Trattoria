@@ -44,7 +44,7 @@ const pizzaList = [
     },
     {
         id: 7,
-        name: 'Choose your own toppings:',
+        name: 'Choose Your Own Toppings:',
         description: 'Pepperoni, Mushrooms, Sausage, Onions, Bacon, Extra Cheese, Peppers, Black Olives, Chicken, Pineapple, Spinach, Fresh Basil, Ham, Pesto, Beef',
         price: '15 + 3 * number of toppings you choose',
     },
