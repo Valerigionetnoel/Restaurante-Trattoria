@@ -44,7 +44,7 @@ const drinksList = [
     },
     {
         id: 7,
-        name: 'Hot chocolate',
+        name: 'Hot Chocolate',
         description: '',
         price: 6,
     },

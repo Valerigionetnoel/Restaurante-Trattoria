@@ -1,4 +1,3 @@
-import React from 'react';
 import appetizersList from './appetizersList';
 import AppetizersPicture1 from './images/appetizerPicture1.jpg';
 import AppetizersPicture2 from './images/appetizerPicture2.jpg';

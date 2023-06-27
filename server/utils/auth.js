@@ -12,7 +12,6 @@ module.exports = {
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();
     }
-
     if (!token) {
       return req;
     }
@@ -27,7 +26,6 @@ module.exports = {
   },
   signToken: function ({ username, email, _id }) {
     const payload = { username, email, _id };
-
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };

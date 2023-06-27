@@ -10,7 +10,12 @@ const resolvers = {
               return user;
             } 
                 throw new AuthenticationError('User is not logged in')
-        
+        },
+        reviews: async (parent, args, context) => {
+          console.log('Getting all of the reviews!');
+          const reviews = await Review.find().sort({createdAt: -1});
+          console.log(reviews);
+          return reviews;
         },
     },
 
@@ -33,7 +38,6 @@ const resolvers = {
                 throw new AuthenticationError('Incorrect credentials');
             }
             const token = signToken(user);
-
             return { token, user };
         },
         addReview: async (parent, { reviewText }, context) => {
@@ -72,8 +76,6 @@ const resolvers = {
             console.log('Deleting a review', reviewId);
             return Review.findOneAndDelete({ _id: reviewId });
           },
-      
-      
     }
 };
 

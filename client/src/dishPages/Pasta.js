@@ -1,4 +1,3 @@
-import React from 'react';
 import pastaList from './pastaList';
 import PastaPicture1 from './images/pastaPicture1.jpg';
 import PastaPicture2 from './images/pastaPicture2.jpg';
