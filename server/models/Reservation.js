@@ -17,7 +17,6 @@ const reservationSchmea = new Schema({
     reservationTime: {
         type: String,
         required: true
-        
     }, 
 });
 

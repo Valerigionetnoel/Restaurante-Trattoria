@@ -13,7 +13,7 @@ const Navbar = () => {
             <StyledNavbar extended={navbar}>
              <InnerNavbar>
              <LeftNavbar>
-             <NavbarSingleLinkHome to='/' className='logo'>Restaurant</NavbarSingleLinkHome>
+             <NavbarSingleLinkHome to='/' className='logo'>Ristorante Trattoria</NavbarSingleLinkHome>
              </LeftNavbar>
              <RightNavbar>
                  <NavbarLink>
@@ -49,7 +49,7 @@ const Navbar = () => {
             <StyledNavbar extended={navbar}>
              <InnerNavbar>
              <LeftNavbar>
-             <NavbarSingleLinkHome to='/' className='logo'>Restaurant</NavbarSingleLinkHome>
+             <NavbarSingleLinkHome to='/' className='logo'>Ristorante Trattoria</NavbarSingleLinkHome>
              </LeftNavbar>
              <RightNavbar>
                  <NavbarLink>

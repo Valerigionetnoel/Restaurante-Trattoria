@@ -26,7 +26,6 @@ const typeDefs = gql`
         token: ID!
         user: User
     }
-   
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
@@ -34,7 +33,6 @@ const typeDefs = gql`
         addReservation(reservationDate: String!, reservationNumber: Int!, reservationTime: String): Reservation
         deleteReview(reviewId: ID!): Review
     }
-
     type Query {
         user: User
         reviews: [Review]
