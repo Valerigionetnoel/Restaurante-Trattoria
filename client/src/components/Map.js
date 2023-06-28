@@ -5,9 +5,10 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 const mapStyles = {
     margin: 'auto',
     width: '70%',
-    height: '60%',
+    height: '50%',
     position: 'relative',
     marginTop: '50px', 
+
 };
 
 export class MapContainer extends Component {
