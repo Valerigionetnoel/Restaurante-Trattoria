@@ -55,6 +55,7 @@ const Navbar = () => {
                  <NavbarLink>
                      <NavbarSingleLink to='/menu'>Menu</NavbarSingleLink>
                      <NavbarSingleLink to='/reviews'>Reviews</NavbarSingleLink>
+                     <NavbarSingleLink to='/donation'>Donations</NavbarSingleLink>
                      <NavbarSingleLink to='/contact'>Contact Us</NavbarSingleLink>
                      <NavbarSingleLink to='/location'>Location</NavbarSingleLink>
                      <NavbarSingleLink to='/login'>Login</NavbarSingleLink>

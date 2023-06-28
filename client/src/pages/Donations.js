@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { QUERY_CHECKOUT } from "../utils/queries";
 import { useLazyQuery } from '@apollo/client';
 import { loadStripe } from '@stripe/stripe-js';
+import { DonationsContainer, DonationsForm } from '../styled/Donations.styled';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -31,14 +32,10 @@ const DonationPage = () => {
 
     
   return (
-    <form 
-      onSubmit={submitHandler}
-    class="container">
+    <DonationsContainer>
+      <DonationsForm  onSubmit={submitHandler}>
 
-    <div class="row">
-
-      <div class="col">
-        <h2 class="title">Donations Page</h2>
+        <h3>Donations Page</h3>
 
         <div class="inputBox">
           <span>full name :</span>
@@ -69,9 +66,6 @@ const DonationPage = () => {
             <span>amount :</span>
             <input type="number" placeholder="$100.00"></input>
           </div>
-        </div>
-      </div>
-
 
       {/* <div class="col">
         <h3 class="title">payment</h3>
@@ -100,11 +94,11 @@ const DonationPage = () => {
         </div>
       </div> */}
 
-
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit" className='button'>Submit</button>
 
-  </form>
+    </DonationsForm>
+  </DonationsContainer>
   );
 }
 

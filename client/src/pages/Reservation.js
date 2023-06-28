@@ -44,7 +44,7 @@ const ReservationPage = () => {
          <DemoContainer
             components={['TimePicker']}>
               <DemoItem>
-            <TimePicker views={['hours', 'minutes', 'AM/PM']} required/>
+            <TimePicker views={['hours', 'minutes', 'AM/PM']} required />
            </DemoItem>
          </DemoContainer>
         </LocalizationProvider>
