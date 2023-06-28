@@ -26,10 +26,12 @@ const LocationPage = () => {
             <p>10:00am - 10:00pm</p>
             <h3>Sunday</h3>
             <p>10:00am - 9:00pm</p>
+            <h3>100 Tucker Park Rd, Saint John, NB E2K 5E2</h3>
         </div>
         <div className='locationSection'>
+        
+        
         <Map />
-        <h3>100 Tucker Park Rd, Saint John, NB E2K 5E2</h3>
         </div>
     </StyledLocationAndHoursContainer>
     );

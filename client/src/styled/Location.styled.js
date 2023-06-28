@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const StyledLocationAndHoursContainer = styled.div`
 
 text-align: center;
-// position: absolute;
+// position: relative;
 // width: 100%;
-// height: 500px;
+// height: auto;
 
 h1 {
     margin: 50px;
@@ -18,6 +18,12 @@ h2 {
 
 h3 {
     margin-top: 30px;
+}
+
+.locationSection {
+    position: relative;
+    width: 100%;
+    height: 600px;
 }
 
 
