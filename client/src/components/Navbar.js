@@ -69,6 +69,7 @@ const Navbar = () => {
              <ExtendedNavbar>
                      <NavbarExtendedLink to='/menu'>Menu</NavbarExtendedLink>
                      <NavbarExtendedLink to='/reviews'>Reviews</NavbarExtendedLink>
+                     <NavbarExtendedLink to='/donation'>Donations</NavbarExtendedLink>
                      <NavbarExtendedLink to='/contact'>Contact Us</NavbarExtendedLink>
                      <NavbarExtendedLink to='/location'>Location</NavbarExtendedLink>
                      <NavbarExtendedLink to='/login'>Login</NavbarExtendedLink>
