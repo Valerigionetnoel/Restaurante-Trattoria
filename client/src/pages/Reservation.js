@@ -31,10 +31,13 @@ const ReservationPage = () => {
 
           {/* FORM */}
           <StyledReservationForm>
-          <h2>Find a table at Ristorante Trattoria</h2>
+          <h2>Find a Table</h2>
+
+          <input type="text" placeholder="Your Phone Number" required></input>
+              <input type="number" placeholder="How many persons?" min="1" required ></input>
 
             <Space direction="vertical">
-              <DatePicker onChange={onChange} required />
+              <DatePicker onChange={onChange} required className="input"/>
             </Space>
 
         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -46,10 +49,9 @@ const ReservationPage = () => {
          </DemoContainer>
         </LocalizationProvider>
         
-              <input type="text" placeholder="Your Phone Number" required></input>
-              <input type="number" placeholder="How many persons?" min="1" required ></input>
+              
 
-         <button type="submit" className="BOOK RESERVATION">
+         <button type="submit" className="button">
             Book Reservation
          </button>
            
