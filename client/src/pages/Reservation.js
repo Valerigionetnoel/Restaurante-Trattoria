@@ -27,21 +27,17 @@ const ReservationPage = () => {
   return (
     // date pickers later
     <StyledReservationContainer>
-      <h2>Find a table at RESTAURANT</h2>
-      <StyledReservationParent>
-        <div>
-          <img
-            // src="https://placehold.co/600x400?text=Reservation+Page"
+        <StyledReservationParent>
+        <img
             src={myImg}
             alt="Reservation Page"
-            width="400"
-            height="537"
+            className="responsiveImg2"
           ></img>
-        </div>
-        <div>
-          <h3>RESERVATIONS</h3>
+        </StyledReservationParent>
+
           {/* FORM */}
           <StyledReservationForm>
+<<<<<<< HEAD
             <Space direction="vertical">
               <DatePicker onChange={onChange} />
               <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -99,9 +95,33 @@ const ReservationPage = () => {
                 Book Reservation
               </button>
             </div>
+=======
+          <h2>Find a Table</h2>
+
+          <input type="text" placeholder="Your Phone Number" required></input>
+              <input type="number" placeholder="How many persons?" min="1" required ></input>
+
+            <Space direction="vertical">
+              <DatePicker onChange={onChange} required className="input"/>
+            </Space>
+
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+         <DemoContainer
+            components={['TimePicker']}>
+              <DemoItem>
+            <TimePicker views={['hours', 'minutes', 'AM/PM']} required />
+           </DemoItem>
+         </DemoContainer>
+        </LocalizationProvider>
+        
+              
+
+         <button type="submit" className="button">
+            Book Reservation
+         </button>
+           
+>>>>>>> bf995e5e73d7f8a912d7c2cc8377a064ac7989ee
           </StyledReservationForm>
-        </div>
-      </StyledReservationParent>
     </StyledReservationContainer>
   );
 };

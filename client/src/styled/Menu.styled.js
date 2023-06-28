@@ -19,7 +19,7 @@ button:hover{
 }
 `;
 
-export const StyledDishesContainer = styled.div`
+export const StyledDishesContainer = styled.div` 
 
 h1 {
     margin-top: 1em;

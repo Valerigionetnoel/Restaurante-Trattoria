@@ -6,7 +6,7 @@ const appetizersList = [
     {
         id: 1,
         name: 'Salt And Pepper Squid',
-        description: 'Kick-start your dinner party with a crowd-pleasing plate of salt and pepper squid – the mix of sichuan and black peppercorns gives a tingly spiciness and kick of heat. This recipe is from the co-owners of seafood restaurant Prawn on the Lawn.',
+        description: 'Kick-start your dinner party with a crowd-pleasing plate of salt and pepper squid, the mix of sichuan and black peppercorns gives a tingly spiciness and kick of heat. This recipe is from the co-owners of seafood restaurant Prawn on the Lawn.',
         alt: 'Salt and pepper squid',
         image: AppetizersPicture1,
         price: 15,

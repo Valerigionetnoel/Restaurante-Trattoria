@@ -2,7 +2,6 @@ import drinksList from './drinksList';
 import DrinkPicture1 from './images/drinkPicture1.jpg';
 import DrinkPicture2 from './images/drinkPicture2.jpg';
 
-
 export default function Drinks() {
     return (
         <div>
@@ -18,12 +17,6 @@ export default function Drinks() {
                     <p>{Drinks.price}</p>
                 </div>
             ))}
-
-
-
-
         </div>
-
-
     )
 }

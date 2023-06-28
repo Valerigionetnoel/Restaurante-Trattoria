@@ -26,7 +26,38 @@ query {
         createdAt
     }
 }
-`
+`;
+
+//Gets a single review
+export const GET_SINGLE_REVIEW = gql`
+query ($reviewId: ID!){
+    singleReview(id: $reviewId) {
+       reviews {
+         _id
+         reviewText
+         reviewAuthor
+        createdAt
+       }
+    }
+}
+`;
+
+
+//Gets all the reservations for one user
+export const GET_RESERVATIONS = gql `
+query {
+    user {
+        _id
+        username
+        email
+        reservations{
+            reservationDate
+            reservationTime
+            reservationNumber
+        } 
+    }
+}
+`;
 
 export const QUERY_CHECKOUT = gql`
 query ($fullName: String!, $amount: Int!) {

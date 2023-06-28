@@ -1,13 +1,10 @@
 import {useQuery} from '@apollo/client';
 import {GET_REVIEWS} from '../utils/queries';
 import { ReviewDiv, EachReview } from '../styled/Reviews.styled';
-import { Pagination } from 'antd';
-
 
 const Reviews = () => {
     const {loading, data} = useQuery(GET_REVIEWS);
-    console.log(data);
-   // const reviewData = data?.review || {};
+
     return ( 
         <ReviewDiv>
         <h3>Our Reviews:</h3>
@@ -19,7 +16,6 @@ const Reviews = () => {
             <h6>By: {review.reviewAuthor}</h6>
             </EachReview>
         ))}
-          <Pagination defaultCurrent={10} total={10} />
         </>)
         }
        </ReviewDiv>
