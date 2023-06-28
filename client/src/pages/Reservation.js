@@ -7,16 +7,22 @@ import {
 import myImg from "../images/food/notUsed.jpg";
 
 import { DatePicker, Space } from "antd";
-import dayjs from 'dayjs';
-import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-
+import dayjs from "dayjs";
+import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { TimePicker, MobileTimePicker } from "@mui/x-date-pickers";
+import { TextField } from "@mui/material";
+import { useState } from "react";
+import { Box } from "@mui/material";
 
 const ReservationPage = () => {
+  const [checkDate, setCheckDate] = useState(false);
+  console.log(checkDate);
   const onChange = (date, dateString) => {
     console.log(date, dateString);
+    console.log(checkDate);
+    setCheckDate(true);
   };
   return (
     // date pickers later
@@ -36,22 +42,21 @@ const ReservationPage = () => {
           <h3>RESERVATIONS</h3>
           {/* FORM */}
           <StyledReservationForm>
-
             <Space direction="vertical">
-              <DatePicker onChange={onChange} required />
+              <DatePicker onChange={onChange} />
+              <LocalizationProvider
+              dateAdapter={AdapterDayjs}
+              >
+                
+              <MobileTimePicker views={["hours", "minutes", "AM/PM"]} sx={{
+      "& fieldset": { border: 'none' },
+    }}/>
+            </LocalizationProvider>
             </Space>
 
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer
-        components={[
-          'TimePicker'
-        ]}
-      ><DemoItem>
-      <TimePicker views={['hours', 'minutes', 'AM/PM']} required/>
-    </DemoItem></DemoContainer>
-    </LocalizationProvider>
+            
 
-            <div>
+            {/* <div>
               {/* <select name="days">
                 <option value="day-select">Select Day</option>
                 <option value="Monday">Monday"</option>
@@ -63,7 +68,7 @@ const ReservationPage = () => {
                 <option value="Sunday">Sunday</option>
               </select> */}
 
-              {/* <select name="hours">
+            {/* <select name="hours">
                 <option value="hour-select">Select Hour</option>
                 <option value="01">01:00</option>
                 <option value="02">02:00</option>
@@ -74,7 +79,7 @@ const ReservationPage = () => {
                 <option value="07">07:00</option>
                 <option value="08">08:00</option>
               </select> */}
-            </div>
+            {/* </div> */}
 
             <div>
               <input type="text" placeholder="Your Full Name" required></input>
