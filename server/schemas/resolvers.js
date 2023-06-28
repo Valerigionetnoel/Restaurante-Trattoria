@@ -17,8 +17,12 @@ const resolvers = {
           const reviews = await Review.find().sort({createdAt: -1});
           console.log(reviews);
           return reviews;
-
         },
+        reservations: async(parent, args, context) => {
+          console.log('Getting the reservations');
+          const reservations = await User.findById({_id: context.user._id}).populate('reservations');
+        },
+
         checkout: async (parent, args, context) => {
           const url = new URL(context.headers.referer).origin;
 
