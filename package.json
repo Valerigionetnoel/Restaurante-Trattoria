@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Valerigionetnoel/CJVV-Restaurant#readme",
   "dependencies": {
-    "concurrently": "^8.2.0"
+    "concurrently": "^8.2.0",
+    "google-maps-react": "^2.0.6"
   }
 }
