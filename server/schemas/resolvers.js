@@ -124,17 +124,13 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-       
-
         deleteReview: async (parent, { reviewId }) => {
             console.log('Deleting a review', reviewId);
             return Review.findOneAndDelete({ _id: reviewId });
 
         },
 
-    
 
-       
     },
 
 };

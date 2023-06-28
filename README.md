@@ -7,18 +7,7 @@
 ## Live URL:
 
 ## Technologies Used:
-Front End:
-- React
-- Styled Components
-- AndD
-- CSS
-
-Back End:
-- Mongo DB and Mongoose
-- GraphQL, Node.js, and Express.js server
-
-Includes: <br>
-Authentication(JWT), emailJS, 
+For this project we used many different technologies, for the Front End we used React, Styled Components to style the components, antD for carousels, and models, and CSS. For the Back End we used MongoDB, Mongoose, GraphQL, Node.js and Express.js to run the server and set up our models. Some extra technologies that we used are Authentication(JWT), emailJS to send an email when the contact form is filled out, Stripe to process payments. 
 
 ## Credits
 
