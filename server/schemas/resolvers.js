@@ -138,36 +138,36 @@ const resolvers = {
     },
 
 //These one's I'm still not sure if they work -V
-    updateReview: async (parent, args, context) => {
-      if (context.user) {
-          console.log('Review Updated!')
-          const review = Review.findByIdAndUpdate(
-              { _id: context.review._id },
-              { reviewText }
-          )
-          return review
-      }
-  },
+//     updateReview: async (parent, args, context) => {
+//       if (context.user) {
+//           console.log('Review Updated!')
+//           const review = Review.findByIdAndUpdate(
+//               { _id: context.review._id },
+//               { reviewText }
+//           )
+//           return review
+//       }
+//   },
 
 
-addReservation: async (parent, { reservationName, reservationDate, reservationNumber, reservationTime }, context) => {
-    console.log('Adding a reservation', { reservationName, reservationDate, reservationNumber, reservationTime });
-    if (context.user) {
-        console.log('Creating the reservation', reservationName);
-        const reservation = await Reservation.create({
-            reservationName,
-            reservationDate,
-            reservationNumber,
-            reservationTime
-        });
-        return reservation;
-    }
-    throw new AuthenticationError('You need to be logged in!');
-},
-deleteReservation: async (parent, { reservationId }) => {
-  console.log('Deleting reservation', reservationId);
-  return Reservation.findOneAndDelete({ _id: reservationId })
-},
+// addReservation: async (parent, { reservationName, reservationDate, reservationNumber, reservationTime }, context) => {
+//     console.log('Adding a reservation', { reservationName, reservationDate, reservationNumber, reservationTime });
+//     if (context.user) {
+//         console.log('Creating the reservation', reservationName);
+//         const reservation = await Reservation.create({
+//             reservationName,
+//             reservationDate,
+//             reservationNumber,
+//             reservationTime
+//         });
+//         return reservation;
+//     }
+//     throw new AuthenticationError('You need to be logged in!');
+// },
+// deleteReservation: async (parent, { reservationId }) => {
+//   console.log('Deleting reservation', reservationId);
+//   return Reservation.findOneAndDelete({ _id: reservationId })
+// },
 
 
 };
