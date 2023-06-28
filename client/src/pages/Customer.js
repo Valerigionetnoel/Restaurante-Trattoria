@@ -57,7 +57,7 @@ const CustomerPage = () => {
             {reviews.map(review => (
                 <CustomerMappedReviews key={review.reviewId}>
                 <p>{review.reviewText}</p>
-                <EditReview />
+                <EditReview reviewId={review._id}/>
                 <button className="button" onClick={() => deleteAReview(review._id)}>Delete</button>
                 </CustomerMappedReviews>
             ))}

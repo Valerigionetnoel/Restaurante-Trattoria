@@ -3,7 +3,11 @@ import { Modal } from 'antd';
 import { useState } from 'react';
 import Auth from '../utils/auth';
 
-const EditReview = () => {
+const EditReview = ({reviewId}) => {
+    console.log(reviewId);
+    //Get the single review:
+    
+
     //To edit the review:
    // const [editReview, {error}] = useMutation(EDIT_REVIEW);
    const editAReview = async(reviewId) => {

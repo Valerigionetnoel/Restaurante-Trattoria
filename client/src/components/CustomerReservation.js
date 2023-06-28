@@ -5,14 +5,14 @@ import { CustomerResDiv, CustomResEach } from "../styled/CustomerReservations.st
 
 
 const CustomerReservations = () => {
-    const {loading, data} = useQuery(GET_RESERVATIONS);
-    const reservationData = data?.reservation || {};
-    console.log('DATA', reservationData);
+    //const {loading, data} = useQuery(GET_RESERVATIONS);
+    //const reservationData = data?.reservation || {};
+    //console.log('DATA', reservationData);
 
-   const {reservations} = reservationData;
-    console.log('RES', reservations);
+   //const {reservations} = reservationData;
+   // console.log('RES', reservations);
 
-    return (
+   /* return (
         <>
         {Auth.loggedIn() ?
         (
@@ -33,7 +33,7 @@ const CustomerReservations = () => {
         )}
         
         </>
-    );
+    ); */
 }
  
 export default CustomerReservations;
