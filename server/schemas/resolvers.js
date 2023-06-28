@@ -18,6 +18,12 @@ const resolvers = {
           console.log(reviews);
           return reviews;
         },
+        singleReview: async (parent, args, context) => {
+          console.log('Getting one review');
+          const reviews = await Review.findById({_id: args.reviewId});
+          console.log('Returned review', review);
+          return reviews;
+        },
         reservations: async(parent, args, context) => {
           console.log('Getting the reservations');
           const reservations = await User.findById({_id: context.user._id}).populate('reservations');

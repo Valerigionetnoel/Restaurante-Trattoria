@@ -28,6 +28,19 @@ query {
 }
 `;
 
+//Gets a single review
+export const GET_SINGLE_REVIEW = gql`
+query {
+    singleReview {
+        _id
+        reviewText
+        reviewAuthor
+        createdAt
+    }
+}
+`;
+
+
 //Gets all the reservations for one user
 export const GET_RESERVATIONS = gql `
 query {

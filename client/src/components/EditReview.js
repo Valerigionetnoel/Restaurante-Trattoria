@@ -1,12 +1,15 @@
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { Modal } from 'antd';
 import { useState } from 'react';
 import Auth from '../utils/auth';
+import { GET_SINGLE_REVIEW } from '../utils/queries';
 
 const EditReview = ({reviewId}) => {
     console.log(reviewId);
     //Get the single review:
-    
+    const {loading, data} = useQuery(GET_SINGLE_REVIEW);
+    console.log('EDIT DATA', data);
+
 
     //To edit the review:
    // const [editReview, {error}] = useMutation(EDIT_REVIEW);
