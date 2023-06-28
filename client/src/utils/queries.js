@@ -30,12 +30,14 @@ query {
 
 //Gets a single review
 export const GET_SINGLE_REVIEW = gql`
-query {
-    singleReview {
-        _id
-        reviewText
-        reviewAuthor
+query ($reviewId: ID!){
+    singleReview(id: $reviewId) {
+       reviews {
+         _id
+         reviewText
+         reviewAuthor
         createdAt
+       }
     }
 }
 `;

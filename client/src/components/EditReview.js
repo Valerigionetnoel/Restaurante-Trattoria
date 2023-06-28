@@ -7,8 +7,11 @@ import { GET_SINGLE_REVIEW } from '../utils/queries';
 const EditReview = ({reviewId}) => {
     console.log(reviewId);
     //Get the single review:
-    const {loading, data} = useQuery(GET_SINGLE_REVIEW);
+    const {loading, error, data} = useQuery(GET_SINGLE_REVIEW, {
+        variables: {reviewId}
+    });
     console.log('EDIT DATA', data);
+    //console.log('ERROR', error);
 
 
     //To edit the review:
