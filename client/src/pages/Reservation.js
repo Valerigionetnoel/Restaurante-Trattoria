@@ -44,17 +44,15 @@ const ReservationPage = () => {
           <StyledReservationForm>
             <Space direction="vertical">
               <DatePicker onChange={onChange} />
-              <LocalizationProvider
-              dateAdapter={AdapterDayjs}
-              >
-                
-              <MobileTimePicker views={["hours", "minutes", "AM/PM"]} sx={{
-      "& fieldset": { border: 'none' },
-    }}/>
-            </LocalizationProvider>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <MobileTimePicker
+                  views={["hours", "minutes", "AM/PM"]}
+                  sx={{
+                    "& fieldset": { border: "none" },
+                  }}
+                />
+              </LocalizationProvider>
             </Space>
-
-            
 
             {/* <div>
               {/* <select name="days">
