@@ -5,12 +5,21 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
+@media (max-width: 750px){
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 `;
 
 export const StyledReservationParent = styled.div`
   width: 50%;
 img{
   height: 100vh;
+
+}
+@media (max-width: 750px){
+  width: 100%;
 }
 
 `
@@ -32,5 +41,9 @@ input, .input{
   border-radius: 5px;
   width: 20em;
 }
-
+@media (max-width: 750px){
+  button{
+    width: 60%;
+  }
+}
 `;
