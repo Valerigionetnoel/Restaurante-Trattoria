@@ -62,9 +62,13 @@ const CustomerPage = () => {
             ))}
             </OverflowMapped>
            
+           
         ) : (<h6>You have no reviews</h6>)}
+         <button className="button">Your Reservations</button>
        </StyledCustomerRight>
+      
     </StyledCustomer>
+    
     ) : (
         <h2>You Must be logged in</h2>
     )}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import DishTypes from './DishTypes';
 import Appetizers from '../dishPages/Appetizers';
 import Pasta from '../dishPages/Pasta';
