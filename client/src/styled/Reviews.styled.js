@@ -5,11 +5,14 @@ export const ReviewDiv = styled.div`
 display: flex;
 flex-direction: column;
 gap: 1em;
-justify-content: start;
-align-items: center;
+margin: 3em;
 height: 100vh;
+border: 10px double ${({theme}) => theme.colors.navy};
+border-radius: 5px;
+
 h3{
     margin-block: 1em;
+    text-align: center;
 }
 `;
 
@@ -21,6 +24,8 @@ border: none;
 box-shadow: 5px 5px 5px 5px ${({theme}) => theme.colors.lightGrey};
 border-radius: 5px;
 width: 80%;
+margin: 0 auto;
+
 h5{
     font-size: 1.3em;
 }
