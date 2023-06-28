@@ -26,7 +26,23 @@ query {
         createdAt
     }
 }
-`
+`;
+
+//Gets all the reservations for one user
+export const GET_RESERVATIONS = gql `
+query {
+    user {
+        _id
+        username
+        email
+        reservations{
+            reservationDate
+            reservationTime
+            reservationNumber
+        } 
+    }
+}
+`;
 
 export const QUERY_CHECKOUT = gql`
 query ($fullName: String!, $amount: Int!) {

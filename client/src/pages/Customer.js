@@ -6,6 +6,7 @@ import img4 from '../images/food/img4.jpg';
 import Auth from "../utils/auth";
 import CustomerReviewSection from "../components/CustomerReview";
 import EditReview from "../components/EditReview";
+import { Link } from "react-router-dom";
 
 const CustomerPage = () => {
     
@@ -64,7 +65,7 @@ const CustomerPage = () => {
            
            
         ) : (<h6>You have no reviews</h6>)}
-         <button className="button">Your Reservations</button>
+         <Link to='/customerReservations'>Your Reservations</Link>
        </StyledCustomerRight>
       
     </StyledCustomer>

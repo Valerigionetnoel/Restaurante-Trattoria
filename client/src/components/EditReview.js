@@ -16,9 +16,9 @@ const EditReview = () => {
 
     try{
     
-        const {data} = await EditReview({
+        //const {data} = await editReview({
           //  variables: {reviewId, reviewText}
-        })
+       // })
 
     } catch (error){
         console.error(error);
