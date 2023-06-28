@@ -5,8 +5,6 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
     Query: {
-
-
         user: async(parent, args, context) => {
             if(context.user){
               const user = await User.findById({_id: context.user._id}).populate('reviews');
@@ -19,8 +17,18 @@ const resolvers = {
           const reviews = await Review.find().sort({createdAt: -1});
           console.log(reviews);
           return reviews;
-
         },
+        singleReview: async (parent, args, context) => {
+          console.log('Getting one review', args);
+          const review = await Review.findById({_id: args.reviewId});
+          console.log('Returned review', review);
+          return review;
+        },
+        reservations: async(parent, args, context) => {
+          console.log('Getting the reservations');
+          const reservations = await User.findById({_id: context.user._id}).populate('reservations');
+        },
+
         checkout: async (parent, args, context) => {
           const url = new URL(context.headers.referer).origin;
 
@@ -122,46 +130,45 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-
-        //This needs to be completed
-        addReservation: async (parent, { reservationName, reservationDate, reservationNumber, reservationTime }, context) => {
-            console.log('Adding a reservation', { reservationName, reservationDate, reservationNumber, reservationTime });
-            if (context.user) {
-                console.log('Creating the reservation', reservationName);
-                const reservation = await Reservation.create({
-                    reservationName,
-                    reservationDate,
-                    reservationNumber,
-                    reservationTime
-                });
-                return reservation;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-        },
-
         deleteReview: async (parent, { reviewId }) => {
             console.log('Deleting a review', reviewId);
             return Review.findOneAndDelete({ _id: reviewId });
 
         },
-
-        deleteReservation: async (parent, { reservationId }) => {
-            console.log('Deleting reservation', reservationId);
-            return Reservation.findOneAndDelete({ _id: reservationId })
-        },
-
-        // Not sure if this is the way to do this ＞﹏＜
-        updateReview: async (parent, args, context) => {
-            if (context.user) {
-                console.log('Review Updated!')
-                const review = Review.findByIdAndUpdate(
-                    { _id: context.review._id },
-                    { reviewText }
-                )
-                return review
-            }
-        }
     },
+
+//These one's I'm still not sure if they work -V
+    updateReview: async (parent, args, context) => {
+      if (context.user) {
+          console.log('Review Updated!')
+          const review = Review.findByIdAndUpdate(
+              { _id: context.review._id },
+              { reviewText }
+          )
+          return review
+      }
+  },
+
+
+addReservation: async (parent, { reservationName, reservationDate, reservationNumber, reservationTime }, context) => {
+    console.log('Adding a reservation', { reservationName, reservationDate, reservationNumber, reservationTime });
+    if (context.user) {
+        console.log('Creating the reservation', reservationName);
+        const reservation = await Reservation.create({
+            reservationName,
+            reservationDate,
+            reservationNumber,
+            reservationTime
+        });
+        return reservation;
+    }
+    throw new AuthenticationError('You need to be logged in!');
+},
+deleteReservation: async (parent, { reservationId }) => {
+  console.log('Deleting reservation', reservationId);
+  return Reservation.findOneAndDelete({ _id: reservationId })
+},
+
 
 };
 

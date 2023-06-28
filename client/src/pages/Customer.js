@@ -5,6 +5,8 @@ import { OverflowMapped, StyledCustomer, StyledCustomerRight, CustomerMappedRevi
 import img4 from '../images/food/img4.jpg';
 import Auth from "../utils/auth";
 import CustomerReviewSection from "../components/CustomerReview";
+import EditReview from "../components/EditReview";
+import { Link } from "react-router-dom";
 
 const CustomerPage = () => {
     
@@ -55,15 +57,19 @@ const CustomerPage = () => {
             {reviews.map(review => (
                 <CustomerMappedReviews key={review.reviewId}>
                 <p>{review.reviewText}</p>
-                <button className="button">Edit</button>
+                <EditReview reviewId={review._id}/>
                 <button className="button" onClick={() => deleteAReview(review._id)}>Delete</button>
                 </CustomerMappedReviews>
             ))}
             </OverflowMapped>
            
+           
         ) : (<h6>You have no reviews</h6>)}
+         <Link to='/customerReservations'>Your Reservations</Link>
        </StyledCustomerRight>
+      
     </StyledCustomer>
+    
     ) : (
         <h2>You Must be logged in</h2>
     )}
