@@ -5,6 +5,7 @@ import { OverflowMapped, StyledCustomer, StyledCustomerRight, CustomerMappedRevi
 import img4 from '../images/food/img4.jpg';
 import Auth from "../utils/auth";
 import CustomerReviewSection from "../components/CustomerReview";
+import EditReview from "../components/EditReview";
 
 const CustomerPage = () => {
     
@@ -55,7 +56,7 @@ const CustomerPage = () => {
             {reviews.map(review => (
                 <CustomerMappedReviews key={review.reviewId}>
                 <p>{review.reviewText}</p>
-                <button className="button">Edit</button>
+                <EditReview />
                 <button className="button" onClick={() => deleteAReview(review._id)}>Delete</button>
                 </CustomerMappedReviews>
             ))}
