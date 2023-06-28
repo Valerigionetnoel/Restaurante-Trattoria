@@ -1,12 +1,23 @@
 import {
-  StyledReservationContainer, 
+  StyledReservationContainer,
   StyledReservationParent,
-  StyledReservationForm
-} from '../styled/Reservation.styled';
+  StyledReservationForm,
+} from "../styled/Reservation.styled";
 
-import myImg from "../images/food/notUsed.jpg"
+import myImg from "../images/food/notUsed.jpg";
+
+import { DatePicker, Space } from "antd";
+import dayjs from 'dayjs';
+import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+
 
 const ReservationPage = () => {
+  const onChange = (date, dateString) => {
+    console.log(date, dateString);
+  };
   return (
     // date pickers later
     <StyledReservationContainer>
@@ -25,8 +36,23 @@ const ReservationPage = () => {
           <h3>RESERVATIONS</h3>
           {/* FORM */}
           <StyledReservationForm>
+
+            <Space direction="vertical">
+              <DatePicker onChange={onChange} required />
+            </Space>
+
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DemoContainer
+        components={[
+          'TimePicker'
+        ]}
+      ><DemoItem>
+      <TimePicker views={['hours', 'minutes', 'AM/PM']} required/>
+    </DemoItem></DemoContainer>
+    </LocalizationProvider>
+
             <div>
-              <select name="days">
+              {/* <select name="days">
                 <option value="day-select">Select Day</option>
                 <option value="Monday">Monday"</option>
                 <option value="Tuesday">Tuesday</option>
@@ -35,9 +61,9 @@ const ReservationPage = () => {
                 <option value="Friday">Friday</option>
                 <option value="Saturday">Saturday</option>
                 <option value="Sunday">Sunday</option>
-              </select>
+              </select> */}
 
-              <select name="hours">
+              {/* <select name="hours">
                 <option value="hour-select">Select Hour</option>
                 <option value="01">01:00</option>
                 <option value="02">02:00</option>
@@ -47,8 +73,7 @@ const ReservationPage = () => {
                 <option value="06">06:00</option>
                 <option value="07">07:00</option>
                 <option value="08">08:00</option>
-                {/* to be continued */}
-              </select>
+              </select> */}
             </div>
 
             <div>
@@ -67,7 +92,9 @@ const ReservationPage = () => {
                 min="1"
                 required
               ></input>
-              <button type="submit" className="BOOK RESERVATION">Book Reservation</button>
+              <button type="submit" className="BOOK RESERVATION">
+                Book Reservation
+              </button>
             </div>
           </StyledReservationForm>
         </div>
