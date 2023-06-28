@@ -27,18 +27,9 @@ function DishTypes({ currentType, handleTypeChange }) {
                 onClick={() => handleTypeChange('Drinks')}
             >Drinks</button>
 
-
-
-
-
-
         </StyledMenuButtonContainer>
 
-
     );
-
-
-
 }
 
 export default DishTypes;
