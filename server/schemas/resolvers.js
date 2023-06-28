@@ -5,8 +5,6 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
     Query: {
-
-
         user: async(parent, args, context) => {
             if(context.user){
               const user = await User.findById({_id: context.user._id}).populate('reviews');
@@ -122,22 +120,7 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-
-        //This needs to be completed
-        addReservation: async (parent, { reservationName, reservationDate, reservationNumber, reservationTime }, context) => {
-            console.log('Adding a reservation', { reservationName, reservationDate, reservationNumber, reservationTime });
-            if (context.user) {
-                console.log('Creating the reservation', reservationName);
-                const reservation = await Reservation.create({
-                    reservationName,
-                    reservationDate,
-                    reservationNumber,
-                    reservationTime
-                });
-                return reservation;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-        },
+       
 
         deleteReview: async (parent, { reviewId }) => {
             console.log('Deleting a review', reviewId);
@@ -145,22 +128,9 @@ const resolvers = {
 
         },
 
-        deleteReservation: async (parent, { reservationId }) => {
-            console.log('Deleting reservation', reservationId);
-            return Reservation.findOneAndDelete({ _id: reservationId })
-        },
+    
 
-        // Not sure if this is the way to do this ＞﹏＜
-        updateReview: async (parent, args, context) => {
-            if (context.user) {
-                console.log('Review Updated!')
-                const review = Review.findByIdAndUpdate(
-                    { _id: context.review._id },
-                    { reviewText }
-                )
-                return review
-            }
-        }
+       
     },
 
 };
