@@ -25,6 +25,7 @@ const ReservationPage = () => {
         <img
             src={myImg}
             alt="Reservation Page"
+            className="responsiveImg2"
           ></img>
         </StyledReservationParent>
 
