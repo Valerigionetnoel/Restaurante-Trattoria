@@ -2,12 +2,9 @@ import {useQuery} from '@apollo/client';
 import {GET_REVIEWS} from '../utils/queries';
 import { ReviewDiv, EachReview } from '../styled/Reviews.styled';
 
-
-
 const Reviews = () => {
     const {loading, data} = useQuery(GET_REVIEWS);
-    console.log(data);
-   // const reviewData = data?.review || {};
+
     return ( 
         <ReviewDiv>
         <h3>Our Reviews:</h3>
