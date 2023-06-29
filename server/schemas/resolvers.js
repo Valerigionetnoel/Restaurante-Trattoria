@@ -149,21 +149,22 @@ const resolvers = {
 //       }
 //   },
 
-
-// addReservation: async (parent, { reservationName, reservationDate, reservationNumber, reservationTime }, context) => {
-//     console.log('Adding a reservation', { reservationName, reservationDate, reservationNumber, reservationTime });
-//     if (context.user) {
-//         console.log('Creating the reservation', reservationName);
-//         const reservation = await Reservation.create({
-//             reservationName,
-//             reservationDate,
-//             reservationNumber,
-//             reservationTime
-//         });
-//         return reservation;
-//     }
-//     throw new AuthenticationError('You need to be logged in!');
-// },
+ addReservation: async (parent, { reservationName, reservationDate, reservationNumber, reservationTime }, context) => {
+     console.log('Adding a reservation', { reservationName, reservationDate, reservationNumber, reservationTime });
+     if (context.user) {
+         const reservation = await Reservation.create({
+          reservationName: context.user.username,
+          reservationDate,
+          reservationNumber,
+          reservationTime
+         });
+         await User.findOneAndUpdate({
+          _id: context.user._id
+         }, {$addToSet: {reservations: reservation._id}})
+         return reservation;
+     }
+     throw new AuthenticationError('You need to be logged in!');
+ },
 // deleteReservation: async (parent, { reservationId }) => {
 //   console.log('Deleting reservation', reservationId);
 //   return Reservation.findOneAndDelete({ _id: reservationId })
