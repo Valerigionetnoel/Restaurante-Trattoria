@@ -10,14 +10,17 @@ import { ADD_RESERVATION } from "../utils/mutations";
 import Auth from '../utils/auth';
 
 const ReservationPage = () => {
+  console.log('On the res page');
    //For adding the reservation:
-  const [reservationDate, setReservationDate] = useState();
-  const [reservationTime, setReservationTime] = useState();
+  const [reservationDate, setReservationDate] = useState('Monday');
+  const [reservationTime, setReservationTime] = useState('01:00');
   const [reservationNumber, setReservationNumber] = useState(1);
 
   const [addReservation] = useMutation(ADD_RESERVATION);
+  console.log('DATE',reservationDate, 'NUM', reservationNumber, 'TIME', reservationTime);
 
   const handleSaveReservation = async() => {
+    console.log('Submitting the res form');
     const token = Auth.loggedIn() ? Auth.getToken() : null;    
     if (!token) {
       return false;
@@ -80,17 +83,17 @@ const ReservationPage = () => {
         <label>Reservation Time:</label>
         <select name="hours" value={reservationTime}
                 onChange={(e)=> setReservationTime(e.target.value)}>
-                <option value="01">01:00</option>
-                <option value="02">02:00</option>
-                <option value="03">03:00</option>
-                <option value="04">04:00</option>
-                <option value="05">05:00</option>
-                <option value="06">06:00</option>
-                <option value="07">07:00</option>
-                <option value="08">08:00</option>
+                <option value="01:00">01:00</option>
+                <option value="02:00">02:00</option>
+                <option value="03:00">03:00</option>
+                <option value="04:00">04:00</option>
+                <option value="05:00">05:00</option>
+                <option value="06:00">06:00</option>
+                <option value="07:00">07:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
               </select> 
    
-
           <button type="submit" className="button">
             Book Reservation
          </button>

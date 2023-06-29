@@ -3,13 +3,16 @@ const { Schema, model } = require('mongoose');
 const reservationSchmea = new Schema({
     reservationName: {
         type: String,
+        required: true,
+        trim: true
     },
     reservationDate: {
         type: String,
+        required: true,
         default: Date.now,
     },
     reservationNumber: {
-        type: Number,
+        type: String,
         required: true
     },
     reservationTime: {

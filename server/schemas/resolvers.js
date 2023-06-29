@@ -15,7 +15,6 @@ const resolvers = {
       throw new AuthenticationError("User is not logged in");
     },
     reviews: async (parent, args, context) => {
-      console.log("Getting all of the reviews!");
       const reviews = await Review.find().sort({ createdAt: -1 });
       console.log(reviews);
       return reviews;
@@ -27,10 +26,11 @@ const resolvers = {
       return review;
     },
     reservations: async (parent, args, context) => {
-      console.log("Getting the reservations");
-      const reservations = await User.findById({
+      console.log("Getting the reservations for", context.user.username);
+      const reservation = await User.findById({
         _id: context.user._id,
       }).populate("reservations");
+      return reservation;
     },
 
     checkout: async (parent, args, context) => {
@@ -102,9 +102,7 @@ const resolvers = {
     },
 
     login: async (parent, { email, password }) => {
-      console.log("Logging in");
       const user = await User.findOne({ email });
-
       if (!user) {
         throw new AuthenticationError("No user found with this email address");
       }
@@ -118,7 +116,6 @@ const resolvers = {
     },
     addReview: async (parent, { reviewText }, context) => {
       if (context.user) {
-        console.log("Creating the review", reviewText);
         const review = await Review.create({
           reviewText,
           reviewAuthor: context.user.username,
@@ -128,6 +125,20 @@ const resolvers = {
           { $addToSet: { reviews: review._id } }
         );
         return review;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    addReservation: async (parent, { reservationName, reservationDate, reservationNumber , reservationTime }, context) => {
+      if (context.user) {
+        const reservation = await Reservation.create({
+          reservationName: context.user.username,
+          reservationDate, reservationNumber , reservationTime
+        });
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { reservations: reservation._id } }
+        );
+        return reservation;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
