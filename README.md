@@ -1,4 +1,4 @@
-# CJVV Restaurant
+# Restaurante Trattoria
 
 ## Description:
 A full stack MERN application, built with 
