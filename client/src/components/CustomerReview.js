@@ -15,10 +15,11 @@ const CustomerReviewSection = () => {
         }
         try{
             const {data} = await addReview({
-              variables: {
+             variables: {
                 reviewText,
                 reviewAuthor: Auth.getProfile().data.username,}
             });
+            console.log(data);
 
         } catch(error){
             console.error(error);

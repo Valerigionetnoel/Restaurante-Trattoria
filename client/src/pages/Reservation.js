@@ -35,6 +35,7 @@ const ReservationPage = () => {
             reservationTime
           }
         });
+        console.log(data);
 
     } catch(error){
         console.error(error);

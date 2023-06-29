@@ -21,7 +21,7 @@ const CustomerPage = () => {
     }
 
      //For DELETE_REVIEW
-     const [deleteReview, {error}] = useMutation(DELETE_REVIEW);
+     const [deleteReview] = useMutation(DELETE_REVIEW);
 
     const deleteAReview = async(reviewId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -37,6 +37,7 @@ const CustomerPage = () => {
      variables: {reviewId}
 
      });
+     console.log(data);
      window.location.reload();
     } catch(error){
           console.error(error);
