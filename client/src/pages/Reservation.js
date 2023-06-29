@@ -4,10 +4,6 @@ import {
   StyledReservationForm,
 } from "../styled/Reservation.styled";
 import myImg from "../images/food/notUsed.jpg";
-//import { DatePicker, Space } from "antd";
-//import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-//import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-//import { MobileTimePicker } from "@mui/x-date-pickers";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_RESERVATION } from "../utils/mutations";
