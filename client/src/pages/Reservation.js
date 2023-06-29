@@ -14,18 +14,11 @@ import { ADD_RESERVATION } from "../utils/mutations";
 import Auth from '../utils/auth';
 
 const ReservationPage = () => {
-  //const [checkDate, setCheckDate] = useState(false);
-
+   //For adding the reservation:
   const [reservationDate, setReservationDate] = useState();
   const [reservationTime, setReservationTime] = useState();
   const [reservationNumber, setReservationNumber] = useState(1);
 
- // const onChange = (date, dateString) => {
-  //  setCheckDate(true);
-  //};
-  console.log('FORM RES VALUE', 'DATE', reservationDate, 'NUM', reservationNumber, 'TIMES', reservationTime);
-
-  //For adding the reservation:
   const [addReservation] = useMutation(ADD_RESERVATION);
 
   const handleSaveReservation = async() => {
@@ -45,8 +38,7 @@ const ReservationPage = () => {
 
     } catch(error){
         console.error(error);
-    }
-    }
+    }}
 
   return (
     // date pickers later
@@ -62,8 +54,11 @@ const ReservationPage = () => {
       {/* FORM */}
       <StyledReservationForm onSubmit={handleSaveReservation}>
       <h2>Find a Table</h2>
+
+      <label>Phone Number:</label>
       <input type="text" placeholder="Your Phone Number" required></input>
 
+      <label>How Many Persons:</label>
       <input
             type="number"
             placeholder="How many persons?"
@@ -73,8 +68,8 @@ const ReservationPage = () => {
             required
           ></input>
 
-            
-           <select name="days" value={reservationDate}
+        <label>Reservation Date:</label>
+           <select value={reservationDate}
                 onChange={(e)=> setReservationDate(e.target.value)}>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
@@ -85,6 +80,7 @@ const ReservationPage = () => {
                 <option value="Sunday">Sunday</option>
               </select> 
 
+        <label>Reservation Time:</label>
         <select name="hours" value={reservationTime}
                 onChange={(e)=> setReservationTime(e.target.value)}>
                 <option value="01">01:00</option>
@@ -101,7 +97,6 @@ const ReservationPage = () => {
           <button type="submit" className="button">
             Book Reservation
          </button>
-
       </StyledReservationForm>
     </StyledReservationContainer>
   );

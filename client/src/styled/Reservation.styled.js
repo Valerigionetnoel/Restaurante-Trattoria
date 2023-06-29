@@ -30,13 +30,14 @@ height: 100vh;
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 2em;
+gap: 1em;
 justify-content: center;
 
 
 h2{
   text-align: center;
 }
+
 input, select{
   border: 2px solid ${({theme}) => theme.colors.orange};
   padding: 1.2em;
