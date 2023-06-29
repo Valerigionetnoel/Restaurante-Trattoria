@@ -42,71 +42,111 @@ const DonationPage = () => {
     getCheckout({
       variables: {
         ...donationInfo,
-        [event.target.name]: event.target.value},
-      });
+        [event.target.name]: event.target.value,
+      },
+    });
 
-      setDonationInfo({ name: "", email: "", phonenumber: "" });
-    };
-  
+    setDonationInfo({
+      donationFullName: "",
+      donationEmail: "",
+      donationAddress: "",
+      donationCity: "",
+      donationState: "",
+      donationZipCode: "",
+      donationAmount: "",
+    });
+  };
 
   return (
     <DonationsContainer>
       <h3>Donations Page</h3>
       <DonationsForm onSubmit={submitHandler}>
-        <div class="inputBox">
+        <div className="inputBox">
           <span>Full Name :</span>
           <input
             type="text"
             placeholder="Your name here"
             value={donationInfo.donationFullName}
+            onChange={(event) =>
+              setDonationInfo({
+                ...donationInfo,
+                donationFullName: event.target.value,
+              })
+            }
           ></input>
         </div>
-        <div class="inputBox">
+        <div className="inputBox">
           <span>Email :</span>
           <input
             type="email"
             placeholder="youremail@email.com"
             value={donationInfo.donationEmail}
+            onChange={(event) =>
+              setDonationInfo({
+                ...donationInfo,
+                donationEmail: event.target.value,
+              })
+            }
           ></input>
         </div>
-        <div class="inputBox">
+        <div className="inputBox">
           <span>Address :</span>
           <input
             type="text"
             placeholder="Street"
             value={donationInfo.donationAddress}
+            onChange={(event) => setDonationInfo({
+              ...donationInfo,
+              donationAddress: event.target.value,
+            })}
           ></input>
         </div>
-        <div class="inputBox">
+        <div className="inputBox">
           <span>City :</span>
           <input
             type="text"
             placeholder="City"
             value={donationInfo.donationCity}
+            onChange={(event) => setDonationInfo({
+              ...donationInfo,
+              donationCity: event.target.value,
+            })}
           ></input>
         </div>
-        <div class="inputBox">
+        <div className="inputBox">
           <span>State :</span>
           <input
             type="text"
             placeholder="State"
             value={donationInfo.donationState}
+            onChange={(event) => setDonationInfo({
+              ...donationInfo,
+              donationState: event.target.value,
+            })}
           ></input>
         </div>
-        <div class="inputBox">
+        <div className="inputBox">
           <span>Zip Code :</span>
           <input
             type="text"
             placeholder="1A3 B5C"
             value={donationInfo.donationZipCode}
+            onChange={(event) => setDonationInfo({
+              ...donationInfo,
+              donationZipCode: event.target.value,
+            })}
           ></input>
         </div>
-        <div class="inputBox">
+        <div className="inputBox">
           <span>Amount :</span>
           <input
             type="number"
             placeholder="Amount"
             value={donationInfo.donationAmount}
+            onChange={(event) => setDonationInfo({
+              ...donationInfo,
+              donationAmount: event.target.value,
+            })}
           ></input>
         </div>
 
@@ -137,7 +177,7 @@ const DonationPage = () => {
         </div>
       </div> */}
 
-        <button type="submit" className="button" onSubmit={submitHandler} >
+        <button type="submit" className="button" onSubmit={submitHandler}>
           Submit
         </button>
       </DonationsForm>
