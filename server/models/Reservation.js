@@ -4,14 +4,15 @@ const reservationSchmea = new Schema({
     reservationName: {
         type: String,
         required: true,
-        minlength: 3,
+        trim: true
     },
-    reservationDate : {
-        type: Date,
+    reservationDate: {
+        type: String,
+        required: true,
         default: Date.now,
     },
     reservationNumber: {
-        type: Number,
+        type: String,
         required: true
     },
     reservationTime: {

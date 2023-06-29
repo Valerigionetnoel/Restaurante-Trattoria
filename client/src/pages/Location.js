@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
 import { StyledLocationAndHoursContainer,  } from '../styled/Location.styled';
 import Map from '../components/Map';
 
-
-
-
 const LocationPage = () => {
-    
     
     return (
     <StyledLocationAndHoursContainer>
@@ -42,8 +37,8 @@ const LocationPage = () => {
             </div>
         </div>
         <div className='locationSection'>
+
         <h5>100 Tucker Park Rd, Saint John, NB E2K 5E2</h5>
-        
         <Map />
         </div>
     </StyledLocationAndHoursContainer>

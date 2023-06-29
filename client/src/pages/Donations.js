@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { QUERY_CHECKOUT } from "../utils/queries";
 import { useLazyQuery } from '@apollo/client';
 import { loadStripe } from '@stripe/stripe-js';
-import { DonationsContainer, DonationsForm, DonationsLeft, DonationsRight } from '../styled/Donations.styled';
+import { DonationsContainer, DonationsForm } from '../styled/Donations.styled';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 

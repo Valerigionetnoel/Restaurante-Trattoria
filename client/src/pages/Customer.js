@@ -5,8 +5,8 @@ import { OverflowMapped, StyledCustomer, StyledCustomerRight, CustomerMappedRevi
 import img4 from '../images/food/img4.jpg';
 import Auth from "../utils/auth";
 import CustomerReviewSection from "../components/CustomerReview";
-import EditReview from "../components/EditReview";
-import { Link } from "react-router-dom";
+//import EditReview from "../components/EditReview";
+//import { Link } from "react-router-dom";
 
 const CustomerPage = () => {
     
@@ -21,7 +21,7 @@ const CustomerPage = () => {
     }
 
      //For DELETE_REVIEW
-     const [deleteReview, {error}] = useMutation(DELETE_REVIEW);
+     const [deleteReview] = useMutation(DELETE_REVIEW);
 
     const deleteAReview = async(reviewId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -37,11 +37,13 @@ const CustomerPage = () => {
      variables: {reviewId}
 
      });
+     console.log(data);
      window.location.reload();
     } catch(error){
           console.error(error);
     } }
-   
+   // If we ever put in the edit again  <EditReview reviewId={review._id}/>
+   //The link for seeing all your reservations <Link to='/customerReservations'>Your Reservations</Link>
     return ( 
         <>
     {Auth.loggedIn() ? (
@@ -57,7 +59,6 @@ const CustomerPage = () => {
             {reviews.map(review => (
                 <CustomerMappedReviews key={review.reviewId}>
                 <p>{review.reviewText}</p>
-                <EditReview reviewId={review._id}/>
                 <button className="button" onClick={() => deleteAReview(review._id)}>Delete</button>
                 </CustomerMappedReviews>
             ))}
@@ -65,7 +66,6 @@ const CustomerPage = () => {
            
            
         ) : (<h6>You have no reviews</h6>)}
-         <Link to='/customerReservations'>Your Reservations</Link>
        </StyledCustomerRight>
       
     </StyledCustomer>
