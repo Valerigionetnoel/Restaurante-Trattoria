@@ -19,7 +19,7 @@ const typeDefs = gql`
         _id: ID
         reservationName: String
         reservationDate: String
-        reservationNumber: Int
+        reservationNumber: String
         reservationTime: String
     }
     type Auth {
@@ -30,7 +30,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         addReview(reviewText: String!): Review 
-        addReservation(reservationDate: String!, reservationNumber: Int!, reservationTime: String): Reservation
+        addReservation(reservationDate: String!, reservationNumber: String!, reservationTime: String!): Reservation
         deleteReview(reviewId: ID!): Review
     }
     type Query {

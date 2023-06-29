@@ -12,6 +12,10 @@ const CustomerReservations = () => {
    const {reservations} = reservationData;
    console.log('RES', reservations);
 
+   if(loading){
+    <h3>Loading...</h3>
+   }
+
    return (
         <>
         {Auth.loggedIn() ?

@@ -1,7 +1,7 @@
-import { useMutation, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { Modal } from 'antd';
 import { useState } from 'react';
-import Auth from '../utils/auth';
+//import Auth from '../utils/auth';
 import { GET_SINGLE_REVIEW } from '../utils/queries';
 
 const EditReview = ({reviewId}) => {
@@ -11,18 +11,17 @@ const EditReview = ({reviewId}) => {
         variables: {reviewId}
     });
     console.log('EDIT DATA', data);
-    //console.log('ERROR', error);
-
+    console.log('Loading', loading, 'Error', error);
 
     //To edit the review:
    // const [editReview, {error}] = useMutation(EDIT_REVIEW);
-   const editAReview = async(reviewId) => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+   //const editAReview = async(reviewId) => {
+    //const token = Auth.loggedIn() ? Auth.getToken() : null;
 
 
-     if (!token) {
-     return false;
-        }
+    // if (!token) {
+     //return false;
+      //  }
 
     try{
     
@@ -33,7 +32,7 @@ const EditReview = ({reviewId}) => {
     } catch (error){
         console.error(error);
     }
-   };
+  // };
 
 
     //For the andD to open and close the modal:
