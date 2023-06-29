@@ -9,8 +9,9 @@ I want to be able to see reviews that my customers leave.
 Be able to have my customers leave donations, leave reviews, make reservations and place orders. 
 
 ## Screenshots:
-![Uploading Screenshot 2023-06-28 at 8.07.07 PM.png…]() <br>
-![Uploading Screenshot 2023-06-28 at 8.07.00 PM.png…]()
+<img width="1148" alt="Screenshot 2023-06-28 at 8 07 07 PM" src="https://github.com/Valerigionetnoel/Restaurante-Trattoria/assets/109821108/9ec8ee03-9006-4f58-85d7-4ecfd5919b2b">
+
+<img width="1142" alt="Screenshot 2023-06-28 at 8 07 00 PM" src="https://github.com/Valerigionetnoel/Restaurante-Trattoria/assets/109821108/2d8b6ef8-316a-43cc-8e88-50b4fc162351">
 
 ## Live URL:
 https://boiling-tundra-06853-1ddfd77a8dae.herokuapp.com/
