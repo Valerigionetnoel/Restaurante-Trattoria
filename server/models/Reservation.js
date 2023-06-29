@@ -3,11 +3,9 @@ const { Schema, model } = require('mongoose');
 const reservationSchmea = new Schema({
     reservationName: {
         type: String,
-        required: true,
-        minlength: 3,
     },
-    reservationDate : {
-        type: Date,
+    reservationDate: {
+        type: String,
         default: Date.now,
     },
     reservationNumber: {

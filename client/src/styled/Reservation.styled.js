@@ -37,17 +37,13 @@ justify-content: center;
 h2{
   text-align: center;
 }
-input{
+input, select{
   border: 2px solid ${({theme}) => theme.colors.orange};
   padding: 1.2em;
   border-radius: 5px;
   width: 50%;
 }
-.input{
-  border: 2px solid ${({theme}) => theme.colors.orange};
-  padding: 1.2em;
-  border-radius: 5px;
-}
+
 @media (max-width: 750px){
   button{
     width: 60%;
