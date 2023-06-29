@@ -48,8 +48,8 @@ const ReservationPage = () => {
           ></input>
 
         <Space direction="vertical">
-          <DatePicker onChange={onChange} />
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker onChange={onChange} className="input"/>
+          <LocalizationProvider dateAdapter={AdapterDayjs} className="input">
             <MobileTimePicker
               views={["hours", "minutes", "AM/PM"]}
               sx={{
