@@ -9,6 +9,7 @@ const CustomerReviews = () => {
     //For the GET_USER:
     const {loading, data} = useQuery(GET_USER);
     const userData = data?.user || {};
+    console.log('USER DATA', userData);
 
     const {reviews} = userData;
    

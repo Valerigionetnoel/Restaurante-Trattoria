@@ -8,9 +8,8 @@ const resolvers = {
     user: async (parent, args, context) => {
       console.log('Getting the user', context.user);
       if (context.user) {
-        const user = await User.findById({ _id: context.user._id }).populate(
-          "reviews"
-        );
+        const user = await User.findById({ _id: context.user._id }).populate("reviews");
+        console.log(user);
         return user;
       }
       throw new AuthenticationError("User is not logged in");
@@ -30,7 +29,7 @@ const resolvers = {
     reservations: async (parent, args, context) => {
       console.log("Getting the reservations for", context.user.username);
       if (context.user) {
-        const reservations = await User.findById({ _id: context.user._id }).populate("reservations");
+        const reservations = await Reservation.find({reservationName: context.user.username});
         console.log('RES', reservations);
         return reservations;
       }

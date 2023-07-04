@@ -6,6 +6,7 @@ const CustomerReservations = () => {
     const {loading, data} = useQuery(GET_RESERVATIONS);
     const reservationData = data?.reservation || {};
     console.log('DATA', reservationData);
+    
     const {reservations} = reservationData;
     console.log('RES', reservations);
 
