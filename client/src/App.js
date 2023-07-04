@@ -15,6 +15,7 @@ import Footer from './components/Footer';
 import Reviews from './pages/Reviews';
 import DonationPage from './pages/Donations';
 import CustomerReservations from './components/CustomerReservation';
+import CustomerReviewSection from './components/CustomerReviewForm';
 
 //For the styled components pluging;
 import { ThemeProvider } from 'styled-components';
@@ -59,14 +60,16 @@ function App() {
      <Routes>
       <Route index path='/' element={<Home />}></Route>
       <Route path='/contact' element={<ContactPage />}></Route>
-      <Route path='/customer' element={<CustomerPage />}></Route>
+      <Route path='/customer' element={<CustomerPage />}>
+        <Route path='/customerReviews' element={<CustomerReviewSection />}></Route>
+        <Route path='/customerReservations' element={<CustomerReservations />}></Route>
+      </Route>
       <Route path='/reservation' element={<ReservationPage />}></Route>
       <Route path='/location' element={<LocationPage/>}></Route>
       <Route path='/login' element={<LoginPage />}></Route>
       <Route path='/reviews' element={<Reviews />}></Route>
       <Route path='/menu' element={<MenuPage />}></Route>
       <Route path='/donation' element={<DonationPage />}></Route>
-      <Route path='/customerReservations' element={<CustomerReservations />}></Route>
       <Route path='*' element={<NotFound/>}></Route>
      </Routes>
      </Router>
