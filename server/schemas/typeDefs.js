@@ -37,7 +37,7 @@ const typeDefs = gql`
         user: User
         reviews: [Review]
         singleReview(reviewId: ID!): [Review]
-        reservations: [Reservation]
+        userReservations: [Reservation]
         checkout(fullName: String!, amount: Int!): Checkout
     } 
 

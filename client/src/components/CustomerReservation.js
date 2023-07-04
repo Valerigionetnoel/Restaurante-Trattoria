@@ -20,7 +20,7 @@ const CustomerReservations = () => {
         <>
         {Auth.loggedIn() ?
         (
-         <CustomerResDiv>
+        <CustomerResDiv>
         <h3>Your Reservations</h3>  
         {reservations.map(res => (
             <CustomResEach>

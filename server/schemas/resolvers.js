@@ -25,8 +25,8 @@ const resolvers = {
       console.log("Returned review", review);
       return review;
     },
-    reservations: async (parent, args, context) => {
-      console.log("Getting the reservations for", context.user.username);
+    userReservations: async (parent, args, context) => {
+      console.log("Getting the reservations for", args);
       const reservation = await User.findById({
         _id: context.user._id,
       }).populate("reservations");
