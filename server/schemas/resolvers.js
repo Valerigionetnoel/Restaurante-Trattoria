@@ -27,12 +27,11 @@ const resolvers = {
       console.log("Returned review", review);
       return review;
     },
-    userReservations: async (parent, args, context) => {
-      console.log("Getting the reservations for", context.user);
+    reservations: async (parent, args, context) => {
+      console.log("Getting the reservations for", context.user.username);
       if (context.user) {
-        const reservations = await User.findById({ _id: context.user._id }).populate(
-          "reservations"
-        );
+        const reservations = await User.findById({ _id: context.user._id }).populate("reservations");
+        console.log('RES', reservations);
         return reservations;
       }
       throw new AuthenticationError("Not able to get the reservations");

@@ -46,14 +46,12 @@ query ($reviewId: ID!){
 //Gets all the reservations for one user
 export const GET_RESERVATIONS = gql `
 query{
-      userReservations {
+    reservations {
             _id
-            username
-            email
-            reservations {
-                _id
-                reservationDate
-            }
+           reservationName
+           reservationDate
+           reservationTime
+           reservationNumber
      }
 }
 `;

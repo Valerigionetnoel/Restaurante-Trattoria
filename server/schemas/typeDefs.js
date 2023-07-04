@@ -36,8 +36,8 @@ const typeDefs = gql`
     type Query {
         user: User
         reviews: [Review]
+        reservations: [Reservation]
         singleReview(reviewId: ID!): [Review]
-        userReservations: [Reservation]
         checkout(fullName: String!, amount: Int!): Checkout
     } 
 

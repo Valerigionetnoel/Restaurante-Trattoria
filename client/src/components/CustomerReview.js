@@ -21,7 +21,6 @@ const CustomerReviews = () => {
     const deleteAReview = async(reviewId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-
      if (!token) {
      return false;
         }
