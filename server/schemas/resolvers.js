@@ -6,6 +6,7 @@ const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
+      console.log('Getting the user', context.user);
       if (context.user) {
         const user = await User.findById({ _id: context.user._id }).populate(
           "reviews"
@@ -15,6 +16,7 @@ const resolvers = {
       throw new AuthenticationError("User is not logged in");
     },
     reviews: async (parent, args, context) => {
+      console.log('Getting the reviews');
       const reviews = await Review.find().sort({ createdAt: -1 });
       console.log(reviews);
       return reviews;
@@ -26,11 +28,14 @@ const resolvers = {
       return review;
     },
     userReservations: async (parent, args, context) => {
-      console.log("Getting the reservations for", args);
-      const reservation = await User.findById({
-        _id: context.user._id,
-      }).populate("reservations");
-      return reservation;
+      console.log("Getting the reservations for", context.user);
+      if (context.user) {
+        const reservations = await User.findById({ _id: context.user._id }).populate(
+          "reservations"
+        );
+        return reservations;
+      }
+      throw new AuthenticationError("Not able to get the reservations");
     },
 
     checkout: async (parent, args, context) => {
@@ -96,12 +101,14 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
+      console.log('Adding a user')
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
     },
 
     login: async (parent, { email, password }) => {
+      console.log('Logging in a user');
       const user = await User.findOne({ email });
       if (!user) {
         throw new AuthenticationError("No user found with this email address");
@@ -115,6 +122,7 @@ const resolvers = {
       return { token, user };
     },
     addReview: async (parent, { reviewText }, context) => {
+      console.log('Adding a review', reviewText);
       if (context.user) {
         const review = await Review.create({
           reviewText,
@@ -129,6 +137,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     addReservation: async (parent, { reservationName, reservationDate, reservationNumber , reservationTime }, context) => {
+      console.log('Adding a reservation for ', reservationName);
       if (context.user) {
         const reservation = await Reservation.create({
           reservationName: context.user.username,
@@ -159,8 +168,6 @@ const resolvers = {
 //           return review
 //       }
 //   },
-
-
 // deleteReservation: async (parent, { reservationId }) => {
 //   console.log('Deleting reservation', reservationId);
 //   return Reservation.findOneAndDelete({ _id: reservationId })

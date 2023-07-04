@@ -36,7 +36,7 @@ query ($reviewId: ID!){
          _id
          reviewText
          reviewAuthor
-        createdAt
+         createdAt
        }
     }
 }
@@ -47,16 +47,17 @@ query ($reviewId: ID!){
 export const GET_RESERVATIONS = gql `
 query{
       userReservations {
+            _id
+            username
+            email
             reservations {
                 _id
-                reservationName
                 reservationDate
-                reservationTime
-                reservationNumber
             }
      }
 }
 `;
+
 
 export const QUERY_CHECKOUT = gql`
 query ($fullName: String!, $amount: Int!) {

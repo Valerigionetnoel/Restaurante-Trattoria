@@ -8,9 +8,8 @@ const CustomerReservations = () => {
     const {loading, data} = useQuery(GET_RESERVATIONS);
     const reservationData = data?.reservation || {};
     console.log('DATA', reservationData);
-
-   const {reservations} = reservationData;
-   console.log('RES', reservations);
+    const {reservations} = reservationData;
+    console.log('RES', reservations);
 
    if(loading){
     <h3>Loading...</h3>
@@ -18,23 +17,16 @@ const CustomerReservations = () => {
 
    return (
         <>
-        {Auth.loggedIn() ?
-        (
-        <CustomerResDiv>
-        <h3>Your Reservations</h3>  
-        {reservations.map(res => (
-            <CustomResEach>
-                <h4>{res.reservationDate}</h4>
-            </CustomResEach>
-        ))}
-        </CustomerResDiv>      
-        )
-        : 
-        (
-       <CustomerResDiv>
-            <h2>Login to see your reservations</h2>
-        </CustomerResDiv>   
-        )}
+         {reservations ? (
+            <div>
+            {reservations.map(res=> (
+                <div key={res.reservationId}>
+                <p>{res.reservationDate}</p>
+                <button className="button">Delete</button>
+                </div>
+            ))}
+            </div>
+        ) : (<h6>You have no reviews</h6>)}
         
         </>
     );
