@@ -12,6 +12,9 @@ flex-direction: row;
     }
 }
 `;
+export const CustomerButtonContainer = styled.div `
+margin: 1em;
+`;
 
 export const StyledCustomerRight = styled.div`
 display: flex;
