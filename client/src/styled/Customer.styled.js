@@ -21,9 +21,11 @@ display: flex;
 flex-direction: column;
 gap: 2em;
 padding: 1em;
+height: 100vh;
 
 `;
 export const CustomerReview = styled.div`
+height: 80%;
 h2{
     padding-block: 0.5em;
 }
@@ -45,7 +47,7 @@ textarea{
 `;
 export const OverflowMapped = styled.div`
 overflow-x: scroll;
-height: 50%;
+height: 60%;
 width: 100%;
 `;
 
