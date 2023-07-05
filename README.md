@@ -1,4 +1,4 @@
-# Restaurante Trattoria
+# Ristorante Trattoria
 
 ## Description:
 An Italian Restaurant, full stack MERN application. 
