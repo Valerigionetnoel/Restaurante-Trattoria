@@ -153,6 +153,10 @@ const resolvers = {
       return Review.findOneAndDelete({ _id: reviewId });
     },
   },
+  deleteReservation: async (parent, { reservationId }) => {
+      console.log('Deleting reservation', reservationId);
+      return Reservation.findOneAndDelete({ _id: reservationId })
+  },
 
 //These one's I'm still not sure if they work -V
 //     updateReview: async (parent, args, context) => {
@@ -165,10 +169,7 @@ const resolvers = {
 //           return review
 //       }
 //   },
-// deleteReservation: async (parent, { reservationId }) => {
-//   console.log('Deleting reservation', reservationId);
-//   return Reservation.findOneAndDelete({ _id: reservationId })
-// },
+ 
 
 };
 
