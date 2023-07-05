@@ -13,10 +13,7 @@ h3{
     margin: 0.5em;
     text-align: center;
     color: white;
-
-}
-
-`;
+}`;
 
 export const DonationsForm = styled.form`
 display: flex;
@@ -35,7 +32,6 @@ padding: 1em;
     width: 50%;
 }
 
-
 .inputBox{
     margin: 1em;
     display: flex;
@@ -46,8 +42,6 @@ padding: 1em;
     @media (max-width: 700px){
         display: flex;
         flex-direction: column;
-        
-
     }
 }
 .inputBox span{

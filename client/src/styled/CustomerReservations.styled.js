@@ -19,5 +19,6 @@ export const CustomerMappedReservations = styled.div`
  margin: 1em;
  padding: 1em;
  border: none;
+ border-radius: 5px;
  box-shadow: 5px 5px 5px 5px ${({theme}) => theme.colors.lightGrey};
 `;

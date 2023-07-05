@@ -23,7 +23,6 @@ const CustomerPage = () => {
          }
     }
    // If we ever put in the edit again  <EditReview reviewId={review._id}/>
-   //The link for seeing all your reservations 
     return ( 
         <>
     {Auth.loggedIn() ? (

@@ -3,7 +3,6 @@ import { QUERY_CHECKOUT } from "../utils/queries";
 import { useLazyQuery } from '@apollo/client';
 import { loadStripe } from '@stripe/stripe-js';
 import { DonationsContainer, DonationsForm } from '../styled/Donations.styled';
-import img9 from '../images/food/img9.jpg';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -92,10 +91,7 @@ const DonationPage = () => {
           </div>
         </div>
       </div> */}
-
-
     <button type="submit" className='button'>Submit</button>
-
     </DonationsForm>
   </DonationsContainer>
   );

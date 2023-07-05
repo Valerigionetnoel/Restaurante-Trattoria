@@ -4,31 +4,25 @@ import AllReservations from "../components/AllReservations";
 import AllUsers from "../components/AllUsers";
 
 const AdminPage = () => {
-    const[info, setInfo] = useState('Reservations');
+    const[info, setInfo] = useState('Reservation');
     const setInfoContainer = () => {
-        if('Reservation'){
+        if(info === 'Reservation'){
             return <AllReservations />
         }
-        if('Users'){
+        if(info === 'Users'){
             return <AllUsers />
         }
     }
 
-
     return(
         <AdminContainer>
             <h3>Admin Page</h3>
-
             <AdminButtonContainer>
-                <h5>Button Container</h5>
-                <button className="button">Reservations</button>
-                <button className="button">Users</button>
+                <button className="button" onClick={() => setInfo('Reservation')}>Reservations</button>
+                <button className="button" onClick={() => setInfo('Users')}>Users</button>
             </AdminButtonContainer>
-
-
-
             <AdminInfoContainer>
-                <h6>Where the info will go</h6>
+               {setInfoContainer()}
             </AdminInfoContainer>
         </AdminContainer>
     )
