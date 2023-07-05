@@ -16,7 +16,7 @@ const AllReservations = () => {
         
         {reservations.map(res => (
             <div>
-                <h5>{res.reservationName}</h5>
+             <h5>{res.reservationName}</h5>
             </div>
         ))}
         
