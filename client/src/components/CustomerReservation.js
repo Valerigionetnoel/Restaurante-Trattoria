@@ -3,28 +3,26 @@ import { GET_RESERVATIONS } from "../utils/queries";
 //import Auth from '../utils/auth';
 
 const CustomerReservations = () => {
+    console.log('ON THE RESERVATIONS PAGE')
     const {loading, data} = useQuery(GET_RESERVATIONS);
-    const reservationData = data?.reservation || {};
-    console.log('DATA', reservationData);
-    
-    const {reservations} = reservationData;
-    console.log('RES', reservations);
+    console.log('RES DATA', data, 'LOADING', loading);
+    const reservations = data?.userReservations || {};
+    console.log('DATA', reservations);
 
-   if(loading){
-    <h3>Loading...</h3>
-   }
+    if(loading){
+     <h3>Loading...</h3>
+    }
 
    return (
         <>
-         {reservations ? (
+        {reservations ? (
             <div>
-            {reservations.map(res=> (
-                <div key={res.reservationId}>
-                <p>{res.reservationDate}</p>
-                <button className="button">Delete</button>
+            {reservations.map(res => (
+                <div>
+                <p>{res.reservationTime}</p>
                 </div>
             ))}
-            </div>
+           </div>
         ) : (<h6>You have no reservations</h6>)}
         
         </>

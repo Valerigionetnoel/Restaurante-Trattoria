@@ -9,7 +9,6 @@ const resolvers = {
       console.log('Getting the user', context.user);
       if (context.user) {
         const user = await User.findById({ _id: context.user._id }).populate("reviews");
-        console.log(user);
         return user;
       }
       throw new AuthenticationError("User is not logged in");
@@ -26,7 +25,7 @@ const resolvers = {
       console.log("Returned review", review);
       return review;
     },
-    reservations: async (parent, args, context) => {
+    userReservations: async (parent, args, context) => {
       console.log("Getting the reservations for", context.user.username);
       if (context.user) {
         const reservations = await Reservation.find({reservationName: context.user.username});
