@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_ALL_RESERVATIONS } from "../utils/queries";
+import { AdminInfoDiv } from "../styled/Admin.styled";
 
 const AllReservations = () => {
     const {loading, data} = useQuery(GET_ALL_RESERVATIONS);
@@ -15,9 +16,12 @@ const AllReservations = () => {
         <h2>All Reservations</h2>
         
         {reservations.map(res => (
-            <div>
-             <h5>{res.reservationName}</h5>
-            </div>
+            <AdminInfoDiv>
+             <h5>Customer: {res.reservationName}</h5>
+             <h5>Time: {res.reservationTime}</h5>
+             <h5>Date: {res.reservationDate}</h5>
+             <h5>People: {res.reservationNumber}</h5>
+             </AdminInfoDiv>
         ))}
         
         </>

@@ -25,4 +25,22 @@ button:hover{
 export const AdminInfoContainer = styled.div`
 border: 2px solid pink;
 height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1em;
+`;
+
+export const AdminInfoDiv = styled.div`
+gap: 1em;
+border: none;
+box-shadow: 5px 5px 5px 5px ${({theme}) => theme.colors.lightGrey};
+border-radius: 5px;
+width: 80%;
+padding: 1em;
+h5{
+    font-size: 1em;
+    text-align: left;
+}
+
 `;

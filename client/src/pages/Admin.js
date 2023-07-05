@@ -16,7 +16,7 @@ const AdminPage = () => {
 
     return(
         <AdminContainer>
-            <h3>Admin Page</h3>
+            <h2>Admin Page</h2>
             <AdminButtonContainer>
                 <button className="button" onClick={() => setInfo('Reservation')}>Reservations</button>
                 <button className="button" onClick={() => setInfo('Users')}>Users</button>

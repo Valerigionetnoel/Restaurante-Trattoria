@@ -1,5 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_ALL_USERS } from "../utils/queries";
+import { AdminInfoDiv } from "../styled/Admin.styled";
+
 const AllUsers = () => {
     const {loading, data} = useQuery(GET_ALL_USERS);
     let users = data?.allUsers || [];
@@ -13,9 +15,9 @@ const AllUsers = () => {
             <>
         <h2>All Users</h2>
         {users.map(user => (
-            <div>
+            <AdminInfoDiv>
                 <h5>{user.username}</h5>
-            </div>
+             </AdminInfoDiv>
         ))}
         </>
         
