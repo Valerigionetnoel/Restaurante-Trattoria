@@ -4,19 +4,19 @@ export const ReviewDiv = styled.div`
 display: flex;
 flex-direction: column;
 gap: 1em;
-margin: 3em;
+margin: 1.5em;
 height: 100vh;
 border: 10px double ${({theme}) => theme.colors.navy};
 border-radius: 5px;
 
 h3{
-    margin-block: 1em;
+    margin-block: 0.4em;
     text-align: center;
 }
 `;
 
 export const EachReview = styled.div`
-padding: 1.5em;
+padding: 1em;
 margin: 1em;
 gap: 1em;
 border: none;
@@ -26,11 +26,17 @@ width: 80%;
 margin: 0 auto;
 
 h5{
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 h6{
     font-size: 1em;
     padding-top: 1em;
     color: ${({theme}) => theme.colors.darkGrey};
 }
+`;
+
+export const PaginationDiv = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
 `;
