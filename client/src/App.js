@@ -14,7 +14,7 @@ import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 import Reviews from './pages/Reviews';
 import DonationPage from './pages/Donations';
-import CustomerReservations from './components/CustomerReservation';
+import AdminPage from './pages/Admin';
 
 
 //For the styled components pluging;
