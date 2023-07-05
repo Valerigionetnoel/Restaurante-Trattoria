@@ -5,7 +5,12 @@ display: flex;
 flex-direction: column;
 align-items: center;
 height: 100vh;
-margin: 3em;
+margin: 2em;
+h3{
+    margin: 0.5em;
+    text-align: center;
+
+}
 `;
 
 export const DonationsForm = styled.form`
@@ -13,17 +18,21 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-gap: 0.5em;
-width: 60%;
-h3{
-    text-align: center;
-}
+gap: 0.3em;
+width: 25%;
+
+
 .inputBox{
-    padding: 1em;
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
 }
-span{
-    padding: 1em;
-    text-align: left;
+.inputBox span{
+
+
 }
 input{
     padding: 1em;
