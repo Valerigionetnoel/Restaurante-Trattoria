@@ -39,7 +39,14 @@ const resolvers = {
       const allRes = await Reservation.find({});
       console.log('ALL RES', allRes);
       return allRes;
+    }, 
+    allUsers: async(parents, args, context) => {
+      console.log('Getting all of the users');
+      const allUsers = await User.find();
+      console.log('All Users', allUsers);
+      return allUsers;
     },
+ 
   
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;

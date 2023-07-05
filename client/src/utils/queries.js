@@ -68,7 +68,16 @@ query{
     }
 }
 `;
-
+//Gets all the users for the admin page:
+export const GET_ALL_USERS = gql`
+    query{
+        allUsers{
+            _id
+            username
+            email
+        }
+    }
+`;
 
 //For the donations page:
 export const QUERY_CHECKOUT = gql`
