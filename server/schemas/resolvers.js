@@ -34,6 +34,12 @@ const resolvers = {
       }
       throw new AuthenticationError("Not able to get the reservations");
     },
+    allReservations: async(parents, args, context) => {
+      console.log('Getting all of the reservations');
+      const allRes = await Reservation.find({});
+      console.log('ALL RES', allRes);
+      return allRes;
+    },
   
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;

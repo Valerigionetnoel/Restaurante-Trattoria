@@ -56,6 +56,20 @@ query{
 }
 `;
 
+//Gets all the reservations for the admin page:
+export const GET_ALL_RESERVATIONS =  gql`
+query{
+    allReservations {
+        _id
+        reservationName
+        reservationDate
+        reservationTime
+        reservationNumber
+    }
+}
+`;
+
+
 //For the donations page:
 export const QUERY_CHECKOUT = gql`
 query ($fullName: String!, $amount: Int!) {
