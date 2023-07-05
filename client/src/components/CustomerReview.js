@@ -50,7 +50,6 @@ const CustomerReviews = () => {
             ))}
             </OverflowMapped>
         ) : (<h6>You have no reviews</h6>)}
-        
         </>
     )
 };

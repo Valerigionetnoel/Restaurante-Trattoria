@@ -45,6 +45,8 @@ textarea{
 `;
 export const OverflowMapped = styled.div`
 overflow-x: scroll;
+height: 50%;
+width: 100%;
 `;
 
 export const CustomerMappedReviews = styled.div`
@@ -52,8 +54,6 @@ export const CustomerMappedReviews = styled.div`
  box-shadow: 5px 5px 5px 5px ${({theme}) => theme.colors.lightGrey};
  padding: 2em;
  border-radius: 5px;
- 
-
  margin: 1em;
  button {
     margin: 1em;

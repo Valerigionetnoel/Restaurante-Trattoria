@@ -12,3 +12,12 @@ border-radius: 5px;
 padding: 1em;
 margin: 1em;
 `;
+
+export const CustomerMappedReservations = styled.div`
+ display: flex;
+ flex-direction: row;
+ margin: 1em;
+ padding: 1em;
+ border: none;
+ box-shadow: 5px 5px 5px 5px ${({theme}) => theme.colors.lightGrey};
+`;

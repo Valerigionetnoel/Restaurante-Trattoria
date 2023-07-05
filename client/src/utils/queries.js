@@ -52,6 +52,7 @@ query{
         reservationDate
         reservationTime
         reservationNumber
+       
     }
 }
 `;
