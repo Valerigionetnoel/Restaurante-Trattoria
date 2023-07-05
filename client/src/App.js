@@ -61,7 +61,7 @@ function App() {
       <Route index path='/' element={<Home />}></Route>
       <Route path='/contact' element={<ContactPage />}></Route>
       <Route path='/customer' element={<CustomerPage />}></Route>
-      <Route path='/customerReservations' element={<CustomerReservations />}></Route>
+      <Route path='/admin' element={<AdminPage />}></Route>
       <Route path='/reservation' element={<ReservationPage />}></Route>
       <Route path='/location' element={<LocationPage/>}></Route>
       <Route path='/login' element={<LoginPage />}></Route>
