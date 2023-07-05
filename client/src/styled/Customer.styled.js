@@ -13,7 +13,10 @@ flex-direction: row;
 }
 `;
 export const CustomerButtonContainer = styled.div `
-margin: 1em;
+display: flex;
+flex-direction: row;
+gap: 1em;
+margin-bottom: 1em;
 `;
 
 export const StyledCustomerRight = styled.div`
