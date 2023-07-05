@@ -152,12 +152,13 @@ const resolvers = {
       console.log("Deleting a review", reviewId);
       return Review.findOneAndDelete({ _id: reviewId });
     },
+    deleteReservation: async (parent, args, context) => {
+      console.log('Deleting reservation', args);
+      const res = await Reservation.findByIdAndDelete({_id: args.reservationId});
+      return res;
   },
-  deleteReservation: async (parent, { reservationId }) => {
-      console.log('Deleting reservation', reservationId);
-      return Reservation.findOneAndDelete({ _id: reservationId })
   },
-
+  
 //These one's I'm still not sure if they work -V
 //     updateReview: async (parent, args, context) => {
 //       if (context.user) {

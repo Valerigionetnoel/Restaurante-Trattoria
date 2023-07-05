@@ -12,6 +12,7 @@ const CustomerReservations = () => {
     //Deleting the reservations:
     const [deleteReservation] = useMutation(DELETE_RESERVATION);
     const deleteAReservation = async(reservationId) => {
+        console.log('Deleting a res', reservationId);
         const token = Auth.loggedIn() ? Auth.getToken() : null;
         if(!token){
             return false;
@@ -21,6 +22,7 @@ const CustomerReservations = () => {
                 variables: {reservationId}
             });
             console.log(data);
+            window.location.reload();
         } catch (error){
             console.error(error);
         }
@@ -37,7 +39,7 @@ const CustomerReservations = () => {
                     <p>Date: {res.reservationDate}</p>
                     <p>Time: {res.reservationTime}</p>
                     <p>For {res.reservationNumber} People</p>
-                    <button className="button" onClick={() => deleteAReservation(res.reservationId)}>Cancel</button>
+                    <button className="button" onClick={() => deleteAReservation(res._id)}>Cancel</button>
               </CustomerMappedReservations>
             ))}
         </OverflowMapped>
