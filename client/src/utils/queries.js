@@ -52,7 +52,6 @@ query{
         reservationDate
         reservationTime
         reservationNumber
-       
     }
 }
 `;

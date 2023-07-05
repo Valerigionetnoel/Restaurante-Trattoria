@@ -37,7 +37,7 @@ const CustomerReviews = () => {
     } catch(error){
           console.error(error);
     } }
-
+//The id, I think I change it it's either reviewId or _id
     return (
         <>
          {reviews ? (
@@ -45,7 +45,7 @@ const CustomerReviews = () => {
             {reviews.map(review => (
                 <CustomerMappedReviews key={review.reviewId}>
                 <p>{review.reviewText}</p>
-                <button className="button" onClick={() => deleteAReview(review._id)}>Delete</button>
+                <button className="button" onClick={() => deleteAReview(review.reviewId)}>Delete</button>
                 </CustomerMappedReviews>
             ))}
             </OverflowMapped>
