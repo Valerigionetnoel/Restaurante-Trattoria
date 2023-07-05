@@ -38,6 +38,8 @@ const typeDefs = gql`
         user: User
         userReservations: [Reservation]
         reviews: [Review]
+        allReservations: [Reservation]
+        allUsers: [User]
         singleReview(reviewId: ID!): [Review]
         checkout(fullName: String!, amount: Int!): Checkout
     } 
