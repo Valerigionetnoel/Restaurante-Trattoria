@@ -63,3 +63,14 @@ mutation deleteReview($reviewId: ID!){
 }
 `
 //Delete a reservation
+export const DELETE_RESERVATION = gql`
+mutation deleteReservation($reservationId: ID!){
+    deleteReservation(reservationId: $reservationId){
+        _id
+        reservationName
+        reservationTime
+        reservationDate
+        reservationNumber
+    }
+}
+`;

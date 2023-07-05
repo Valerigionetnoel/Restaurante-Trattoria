@@ -32,6 +32,7 @@ const typeDefs = gql`
         addReview(reviewText: String!): Review 
         addReservation(reservationDate: String!, reservationNumber: String!, reservationTime: String!): Reservation
         deleteReview(reviewId: ID!): Review
+        deleteReservation(reservationId: ID!): Reservation
     }
     type Query {
         user: User
