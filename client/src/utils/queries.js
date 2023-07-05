@@ -65,26 +65,3 @@ query ($fullName: String!, $amount: Int!) {
 }
 `;
 
-//Gets all the users for the admin page:
-export const GET_ALL_USERS = gql`
-    query{
-        allUsers{
-            _id
-            username
-            email
-        }
-    }
-`;
-
-//Gets all the reservations for the admin page:
-export const GET_ALL_RESERVATIONS =  gql`
-query{
-    allReservations {
-        _id
-        reservationName
-        reservationDate
-        reservationTime
-        reservationNumber
-    }
-
-`;
