@@ -56,11 +56,35 @@ query{
 }
 `;
 
-
+//For the donations page:
 export const QUERY_CHECKOUT = gql`
 query ($fullName: String!, $amount: Int!) {
     checkout (fullName: $fullName, amount: $amount)  {
         session
     }
 }
-`
+`;
+
+//Gets all the users for the admin page:
+export const GET_ALL_USERS = gql`
+    query{
+        allUsers{
+            _id
+            username
+            email
+        }
+    }
+`;
+
+//Gets all the reservations for the admin page:
+export const GET_ALL_RESERVATIONS =  gql`
+query{
+    allReservations {
+        _id
+        reservationName
+        reservationDate
+        reservationTime
+        reservationNumber
+    }
+
+`;
