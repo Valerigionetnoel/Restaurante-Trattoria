@@ -3,11 +3,8 @@ import { GET_RESERVATIONS } from "../utils/queries";
 //import Auth from '../utils/auth';
 
 const CustomerReservations = () => {
-    console.log('ON THE RESERVATIONS PAGE')
     const {loading, data} = useQuery(GET_RESERVATIONS);
-    console.log('RES DATA', data, 'LOADING', loading);
     const reservations = data?.userReservations || {};
-    console.log('DATA', reservations);
 
     if(loading){
      <h3>Loading...</h3>
@@ -19,7 +16,9 @@ const CustomerReservations = () => {
             <div>
             {reservations.map(res => (
                 <div>
+                <p>{res.reservationDate}</p>
                 <p>{res.reservationTime}</p>
+                <button className="button">Delete</button>
                 </div>
             ))}
            </div>

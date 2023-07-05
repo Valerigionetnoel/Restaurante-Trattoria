@@ -3,7 +3,7 @@ import { StyledFooter } from "../styled/Footer.styled";
 const Footer = () => {
     return (
         <StyledFooter>
-            <h2 className="logo">Ristorante Trattoria</h2>
+            <h3 className="logoFoot">Ristorante Trattoria</h3>
         </StyledFooter>
       );
 }
