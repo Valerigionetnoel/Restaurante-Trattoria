@@ -35,7 +35,7 @@ const CustomerReservations = () => {
         { loading ? ( <h3>Loading...</h3>): 
         (<OverflowMapped>
             {data.userReservations.map(res => (
-                <CustomerMappedReservations key={res.reservationId}>
+                <CustomerMappedReservations key={res._id}>
                     <p>Date: {res.reservationDate}</p>
                     <p>Time: {res.reservationTime}</p>
                     <p>For {res.reservationNumber} People</p>

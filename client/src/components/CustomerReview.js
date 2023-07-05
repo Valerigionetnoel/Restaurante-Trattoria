@@ -43,9 +43,9 @@ const CustomerReviews = () => {
          {reviews ? (
             <OverflowMapped>
             {reviews.map(review => (
-                <CustomerMappedReviews key={review.reviewId}>
+                <CustomerMappedReviews key={review._id}>
                 <p>{review.reviewText}</p>
-                <button className="button" onClick={() => deleteAReview(review.reviewId)}>Delete</button>
+                <button className="button" onClick={() => deleteAReview(review._id)}>Delete</button>
                 </CustomerMappedReviews>
             ))}
             </OverflowMapped>
