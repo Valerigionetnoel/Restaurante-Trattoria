@@ -25,6 +25,11 @@ h3{
     font-size: 3vmax;
     font-weight: 400;
 }
+.logoFoot{
+    font-family: 'Dancing Script', cursive;
+    font-size: 3vmax;
+    font-weight: 400;
+}
 h4, h5, h6{
     font-family: 'Merriweather', serif;
     font-size: 2vmax;

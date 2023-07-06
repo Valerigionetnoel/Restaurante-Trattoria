@@ -36,7 +36,7 @@ query ($reviewId: ID!){
          _id
          reviewText
          reviewAuthor
-        createdAt
+         createdAt
        }
     }
 }
@@ -45,24 +45,46 @@ query ($reviewId: ID!){
 
 //Gets all the reservations for one user
 export const GET_RESERVATIONS = gql `
-query {
-    user {
+query{     
+    userReservations {
         _id
-        username
-        email
-        reservations{
-            reservationDate
-            reservationTime
-            reservationNumber
-        } 
+        reservationName
+        reservationDate
+        reservationTime
+        reservationNumber
     }
 }
 `;
 
+//Gets all the reservations for the admin page:
+export const GET_ALL_RESERVATIONS =  gql`
+query{
+    allReservations {
+        _id
+        reservationName
+        reservationDate
+        reservationTime
+        reservationNumber
+    }
+}
+`;
+//Gets all the users for the admin page:
+export const GET_ALL_USERS = gql`
+    query{
+        allUsers{
+            _id
+            username
+            email
+        }
+    }
+`;
+
+//For the donations page:
 export const QUERY_CHECKOUT = gql`
 query ($fullName: String!, $amount: Int!) {
     checkout (fullName: $fullName, amount: $amount)  {
         session
     }
 }
-`
+`;
+

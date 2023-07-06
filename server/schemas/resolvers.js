@@ -6,15 +6,15 @@ const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
+      console.log('Getting the user', context.user);
       if (context.user) {
-        const user = await User.findById({ _id: context.user._id }).populate(
-          "reviews"
-        );
+        const user = await User.findById({ _id: context.user._id }).populate("reviews");
         return user;
       }
       throw new AuthenticationError("User is not logged in");
     },
     reviews: async (parent, args, context) => {
+      console.log('Getting the reviews');
       const reviews = await Review.find().sort({ createdAt: -1 });
       console.log(reviews);
       return reviews;
@@ -25,14 +25,29 @@ const resolvers = {
       console.log("Returned review", review);
       return review;
     },
-    reservations: async (parent, args, context) => {
+    userReservations: async (parent, args, context) => {
       console.log("Getting the reservations for", context.user.username);
-      const reservation = await User.findById({
-        _id: context.user._id,
-      }).populate("reservations");
-      return reservation;
+      if (context.user) {
+        const reservations = await Reservation.find({reservationName: context.user.username});
+        console.log('RES', reservations);
+        return reservations;
+      }
+      throw new AuthenticationError("Not able to get the reservations");
     },
-
+    allReservations: async(parents, args, context) => {
+      console.log('Getting all of the reservations');
+      const allRes = await Reservation.find({});
+      console.log('ALL RES', allRes);
+      return allRes;
+    }, 
+    allUsers: async(parents, args, context) => {
+      console.log('Getting all of the users');
+      const allUsers = await User.find();
+      console.log('All Users', allUsers);
+      return allUsers;
+    },
+ 
+  
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
 
@@ -96,12 +111,14 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
+      console.log('Adding a user')
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
     },
 
     login: async (parent, { email, password }) => {
+      console.log('Logging in a user');
       const user = await User.findOne({ email });
       if (!user) {
         throw new AuthenticationError("No user found with this email address");
@@ -115,6 +132,7 @@ const resolvers = {
       return { token, user };
     },
     addReview: async (parent, { reviewText }, context) => {
+      console.log('Adding a review', reviewText);
       if (context.user) {
         const review = await Review.create({
           reviewText,
@@ -129,6 +147,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     addReservation: async (parent, { reservationName, reservationDate, reservationNumber , reservationTime }, context) => {
+      console.log('Adding a reservation for ', reservationName);
       if (context.user) {
         const reservation = await Reservation.create({
           reservationName: context.user.username,
@@ -146,8 +165,13 @@ const resolvers = {
       console.log("Deleting a review", reviewId);
       return Review.findOneAndDelete({ _id: reviewId });
     },
+    deleteReservation: async (parent, args, context) => {
+      console.log('Deleting reservation', args);
+      const res = await Reservation.findByIdAndDelete({_id: args.reservationId});
+      return res;
   },
-
+  },
+  
 //These one's I'm still not sure if they work -V
 //     updateReview: async (parent, args, context) => {
 //       if (context.user) {
@@ -159,12 +183,7 @@ const resolvers = {
 //           return review
 //       }
 //   },
-
-
-// deleteReservation: async (parent, { reservationId }) => {
-//   console.log('Deleting reservation', reservationId);
-//   return Reservation.findOneAndDelete({ _id: reservationId })
-// },
+ 
 
 };
 

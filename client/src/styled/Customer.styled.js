@@ -12,15 +12,23 @@ flex-direction: row;
     }
 }
 `;
+export const CustomerButtonContainer = styled.div `
+display: flex;
+flex-direction: row;
+gap: 1em;
+margin-bottom: 1em;
+`;
 
 export const StyledCustomerRight = styled.div`
 display: flex;
 flex-direction: column;
 gap: 2em;
 padding: 1em;
+height: 100vh;
 
 `;
 export const CustomerReview = styled.div`
+height: 80%;
 h2{
     padding-block: 0.5em;
 }
@@ -42,6 +50,8 @@ textarea{
 `;
 export const OverflowMapped = styled.div`
 overflow-x: scroll;
+height: 60%;
+width: 100%;
 `;
 
 export const CustomerMappedReviews = styled.div`
@@ -49,8 +59,6 @@ export const CustomerMappedReviews = styled.div`
  box-shadow: 5px 5px 5px 5px ${({theme}) => theme.colors.lightGrey};
  padding: 2em;
  border-radius: 5px;
- 
-
  margin: 1em;
  button {
     margin: 1em;

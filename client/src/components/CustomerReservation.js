@@ -1,41 +1,50 @@
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_RESERVATIONS } from "../utils/queries";
+import { DELETE_RESERVATION } from "../utils/mutations";
+import { OverflowMapped } from "../styled/Customer.styled";
+import { CustomerMappedReservations } from "../styled/CustomerReservations.styled";
 import Auth from '../utils/auth';
-import { CustomerResDiv, CustomResEach } from "../styled/CustomerReservations.styled";
-
 
 const CustomerReservations = () => {
+    //Getting the reservations:
     const {loading, data} = useQuery(GET_RESERVATIONS);
-    const reservationData = data?.reservation || {};
-    console.log('DATA', reservationData);
 
-   const {reservations} = reservationData;
-   console.log('RES', reservations);
+    //Deleting the reservations:
+    const [deleteReservation] = useMutation(DELETE_RESERVATION);
+    const deleteAReservation = async(reservationId) => {
+        console.log('Deleting a res', reservationId);
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        if(!token){
+            return false;
+        }
+        try{
+            const {data} = await deleteReservation({
+                variables: {reservationId}
+            });
+            console.log(data);
+            window.location.reload();
+        } catch (error){
+            console.error(error);
+        }
 
-   if(loading){
-    <h3>Loading...</h3>
-   }
+    }
 
    return (
         <>
-        {Auth.loggedIn() ?
-        (
-         <CustomerResDiv>
-        <h3>Your Reservations</h3>  
-        {reservations.map(res => (
-            <CustomResEach>
-                <h4>{res.reservationDate}</h4>
-            </CustomResEach>
-        ))}
-        </CustomerResDiv>      
-        )
-        : 
-        (
-       <CustomerResDiv>
-            <h2>Login to see your reservations</h2>
-        </CustomerResDiv>   
+        <h3>Your Reservations:</h3>
+        { loading ? ( <h3>Loading...</h3>): 
+        (<OverflowMapped>
+            {data.userReservations.map(res => (
+                <CustomerMappedReservations key={res._id}>
+                    <p>Date: {res.reservationDate}</p>
+                    <p>Time: {res.reservationTime}</p>
+                    <p>For {res.reservationNumber} People</p>
+                    <button className="button" onClick={() => deleteAReservation(res._id)}>Cancel</button>
+              </CustomerMappedReservations>
+            ))}
+        </OverflowMapped>
+
         )}
-        
         </>
     );
 }

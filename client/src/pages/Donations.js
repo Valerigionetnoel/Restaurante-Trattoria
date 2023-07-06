@@ -91,10 +91,7 @@ const DonationPage = () => {
           </div>
         </div>
       </div> */}
-
-
     <button type="submit" className='button'>Submit</button>
-
     </DonationsForm>
   </DonationsContainer>
   );
